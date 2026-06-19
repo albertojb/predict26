@@ -1,45 +1,51 @@
 # Predict26 UX Fixes — Deployment Summary
-**Date:** 2026-06-19  
+**Date:** 2026-06-19 (rev. 2)
 **Status:** Deployed to https://sail.zo.space/predict26
 
-## Design Review: Knockout Stage
-**Verdict:** Needs work → Fixed
+## Round 1 (earlier today) — what failed
 
-### Issues Fixed
+First attempt tried to keep the card-grid bracket and add a "→ M045" flow indicator at the bottom of each card. User feedback: "the knockout is still just a collection of boxes" — the textual flow hints were not enough, the card metaphor itself was the problem. Also, the LogRow grid switch to `minmax(120px, 1fr)` made the inner grid wider than the outer card at the 300px breakpoint, so team names overflowed into adjacent cards (see screenshot evidence).
 
-**1. No bracket visualization of match flow** ✅ FIXED
-- **Problem:** Users saw individual match cards but had no visual understanding of how winners progress through the bracket stages
-- **Solution:** Added bracket flow indicators showing next-round matches (→ M045, M046) 
-- **Impact:** Users can now see tournament progression at a glance
+## Round 2 — what shipped
 
-**2. Team names truncated in match logger** ✅ FIXED
-- **Problem:** Long team names (e.g., "Dominican Republic", "Costa Rica") were cut off with ellipsis
-- **Solution:** Changed grid from fixed `1fr 64px auto 64px 1fr` to flexible `minmax(120px, 1fr) 60px auto 60px minmax(120px, 1fr)` with word-break CSS
-- **Impact:** Full team names are now readable when logging results
+### Bracket: card grid → tree
+**Verdict:** Replaced the metaphor entirely.
 
-### Technical Changes
+- Horizontal tree, R32 on the left, Final on the right
+- 16 R32 matches stacked vertically; each subsequent round halves the row count, with each card positioned at the y-midpoint of its two feeders
+- SVG connectors draw orthogonal feeder→successor lines, never crossing (R32 ordering is derived by recursing from the Final, so adjacency is correct by construction)
+- Wrapped in `overflow: auto` with `maxHeight: 75vh` — pans horizontally and vertically
+- Zoom controls (30%–200% in 10% steps, plus 1× and Fit) via `transform: scale()` with `transformOrigin: top left`; outer wrapper width/height scaled to match so scrollbars track the visible content
+- Round headers ("Round of 32", "Round of 16", "Quarter-final", "Semi-final", "Final") sit above each column
+- Third-place play-off is shown separately below the main tree (it doesn't belong on the winners' tree)
+- Match cards are compact (200×64): M-number + date in a tiny mono header, two slot rows below with team name + ELO-projected champ% (when sim has been run)
+- Team-name ellipsis with `title` attribute fallback so the full name is one hover away
 
-#### File: `web/routes/page-predict26.tsx`
-- **Lines 1369-1387:** Added `bracketTree` useMemo that calculates next-match relationships
-- **Lines 1416:** Updated grid minmax from 260px to 280px for bracket cards
-- **Lines 1417-1455:** Added next-match flow indicators to each bracket match card
-- **Lines 1171:** Changed LogRow grid columns to use minmax(120px, 1fr) instead of fixed 1fr
-- **Lines 1180-1182, 1230-1232:** Replaced ellipsis truncation with word-break CSS for team names
+### LogRow: stop the overflow
+- Inner grid: `minmax(0, 1fr) 52px auto 52px minmax(0, 1fr)` — the `0` floor lets columns shrink as far as needed, and `text-overflow: ellipsis` handles long names cleanly instead of letting them spill out of the card
+- Card itself: `overflow: hidden; minWidth: 0` so children stay contained
+- Team-name cells get `overflow: hidden; text-overflow: ellipsis; white-space: nowrap` plus `title` attribute for hover-disclosure of the full name
+- Outer card grid widened from `minmax(300px, 1fr)` to `minmax(340px, 1fr)` for more breathing room
 
-#### File: `AGENTS.md`
-- Documented UX improvements under "Recent UX improvements" section
-- Noted bracketTree visualization and match logger responsive layout changes
+## Files touched
 
-### Verification
-- ✓ Git commit: `364f06e` 
-- ✓ GitHub sync: Pushed to `main` branch
-- ✓ Changes deployed to zo.space `/predict26` route
-- ✓ Live at: https://sail.zo.space/predict26
+- `web/routes/page-predict26.tsx`
+  - `LogRow` (lines ~1134–1245): grid + ellipsis + `title` attributes
+  - `LogTab` outer grid: `minmax(340px, 1fr)`
+  - `BracketTab` (lines ~1357–1568): completely rewritten as tree view with zoom/scroll
+  - New helpers: `BracketMatchCard`, `BracketSlot`, `zoomBtnStyle`, plus `BRACKET_STAGES`/`CARD_W`/`CARD_H`/`ROW_GAP`/`COL_GAP`/`BRACKET_PAD` constants
+  - Removed: `SlotRow` (replaced by `BracketSlot`); removed the `bracketTree` useMemo (replaced by `positions` + `connectors` computed from feeder graph)
+- `AGENTS.md` — updated "Recent UX improvements" section
 
-### Next Steps
-- Monitor user feedback on bracket usability
-- Consider future enhancements: bracket card "advancement probability" inline numbers
-- ELO-overrides persistence across page reloads
+## Verification
+- ✓ Git commit pushed to `main`
+- ✓ Route synced to zo.space via `write_space_route` (28 routes synced)
+- ✓ Live at https://sail.zo.space/predict26
+
+## Next steps
+- Confirm with user that the tree renders correctly across rounds and zoom levels
+- Consider: a "Fit to screen" computation that picks zoom based on container width
+- Consider: keyboard pan (arrow keys) and ctrl/cmd-scroll-to-zoom
 
 ---
-*Generated by design review with general-design-review skill*
+*Designed in response to user feedback; documented for future Claude sessions.*

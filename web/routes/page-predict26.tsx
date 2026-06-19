@@ -1116,7 +1116,7 @@ function LogTab({ data, logged, setLogged, clearLogged, mergeLogged }: {
               <div style={{ flex: 1, height: 1, background: ink.rule }} />
             </div>
             <div style={{
-              display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))",
+              display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(340px,1fr))",
               gap: 8,
             }}>
               {ms.map((m) => (
@@ -1168,18 +1168,21 @@ function LogRow({ match, teams, logged, setLogged }: {
       border: `1.5px solid ${ink.rule}`,
       padding: "10px 12px",
       display: "grid",
-      gridTemplateColumns: "minmax(120px, 1fr) 60px auto 60px minmax(120px, 1fr)",
+      gridTemplateColumns: "minmax(0, 1fr) 52px auto 52px minmax(0, 1fr)",
       gap: 8, alignItems: "center",
       opacity: hasTeams ? 1 : 0.55,
+      overflow: "hidden",
+      minWidth: 0,
     }}>
-      <div style={{
+      <div title={label1} style={{
         textAlign: "right",
         fontFamily: "'Fraunces', serif",
-        fontSize: hasTeams ? 15 : 12, fontStyle: hasTeams ? "normal" : "italic",
+        fontSize: hasTeams ? 14 : 12, fontStyle: hasTeams ? "normal" : "italic",
         fontWeight: hasTeams ? 600 : 400, color: hasTeams ? ink.ink : ink.muted,
         minWidth: 0,
-        wordWrap: "break-word",
-        wordBreak: "break-word",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
       }}>{label1}</div>
       <input
         data-p26
@@ -1222,14 +1225,15 @@ function LogRow({ match, teams, logged, setLogged }: {
           width: "100%",
         }}
       />
-      <div style={{
+      <div title={label2} style={{
         textAlign: "left",
         fontFamily: "'Fraunces', serif",
-        fontSize: hasTeams ? 15 : 12, fontStyle: hasTeams ? "normal" : "italic",
+        fontSize: hasTeams ? 14 : 12, fontStyle: hasTeams ? "normal" : "italic",
         fontWeight: hasTeams ? 600 : 400, color: hasTeams ? ink.ink : ink.muted,
         minWidth: 0,
-        wordWrap: "break-word",
-        wordBreak: "break-word",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
       }}>{label2}</div>
     </div>
   );
@@ -1343,18 +1347,33 @@ function projectBracket(
   return result;
 }
 
+const BRACKET_STAGES = ["Round of 32", "Round of 16", "Quarter-final", "Semi-final", "Final"];
+const CARD_W = 200;
+const CARD_H = 64;
+const ROW_GAP = 14;
+const COL_GAP = 56;
+const BRACKET_PAD = 24;
+
 function BracketTab({ data, results, eloOverrides }: {
   data: DataResp;
   results: { counts: Counts; n: number; elapsedMs: number } | null;
   eloOverrides: Record<string, number>;
 }) {
-  const stages = ["Round of 32", "Round of 16", "Quarter-final", "Semi-final", "Final", "Third place"];
+  const [zoom, setZoom] = useState(1);
+
   const matchesByStage = useMemo(() => {
     const o: Record<string, Match[]> = {};
-    for (const m of data.matches) if (!m.stage.startsWith("Group")) (o[m.stage] ||= []).push(m);
-    for (const s of Object.keys(o)) o[s].sort((a, b) => a.match_no - b.match_no);
+    for (const s of BRACKET_STAGES) o[s] = [];
+    for (const m of data.matches) {
+      if (o[m.stage]) o[m.stage].push(m);
+    }
+    for (const s of BRACKET_STAGES) o[s].sort((a, b) => a.match_no - b.match_no);
     return o;
   }, [data]);
+
+  const thirdPlace = useMemo(() =>
+    data.matches.find((m) => m.stage === "Third place"),
+  [data]);
 
   const projection = useMemo(() => projectBracket(data, eloOverrides), [data, eloOverrides]);
 
@@ -1365,109 +1384,229 @@ function BracketTab({ data, results, eloOverrides }: {
     return c.champion / results.n;
   };
 
-  // Build bracket tree showing match relationships
-  const bracketTree = useMemo(() => {
-    const tree: Record<string, { incoming: string[]; nextStage?: string; nextMatches: number[] }> = {};
-    for (const m of data.matches) {
-      if (m.stage.startsWith("Group")) continue;
-      if (!tree[`M${m.match_no}`]) tree[`M${m.match_no}`] = { incoming: [], nextMatches: [] };
+  // Visual top-to-bottom R32 order by walking the bracket from the Final.
+  const r32Order = useMemo(() => {
+    const order: number[] = [];
+    const matchMap = new Map(data.matches.map((m) => [m.match_no, m]));
+
+    function traverse(matchNo: number) {
+      const m = matchMap.get(matchNo);
+      if (!m) return;
+      if (m.stage === "Round of 32") {
+        order.push(matchNo);
+        return;
+      }
+      const feeders: number[] = [];
+      if (m.team1_slot.startsWith("W")) feeders.push(+m.team1_slot.slice(1));
+      if (m.team2_slot.startsWith("W")) feeders.push(+m.team2_slot.slice(1));
+      feeders.sort((a, b) => a - b);
+      for (const f of feeders) traverse(f);
     }
-    // Connect winners to next round
-    for (const m of data.matches) {
-      if (m.stage.startsWith("Group")) continue;
-      const nextMatches = data.matches.filter(
-        (nm) => (nm.team1_slot === `W${m.match_no}` || nm.team2_slot === `W${m.match_no}`),
-      );
-      const nextMatches3 = data.matches.filter(
-        (nm) => (nm.team1_slot === `RU${m.match_no}` || nm.team2_slot === `RU${m.match_no}`),
-      );
-      tree[`M${m.match_no}`].nextMatches = [...nextMatches, ...nextMatches3].map((x) => x.match_no);
+
+    const finalMatch = matchesByStage["Final"]?.[0];
+    if (finalMatch) traverse(finalMatch.match_no);
+
+    // Fallback: append any R32 not visited (defensive — shouldn't happen).
+    for (const m of (matchesByStage["Round of 32"] || [])) {
+      if (!order.includes(m.match_no)) order.push(m.match_no);
     }
-    return tree;
-  }, [data]);
+    return order;
+  }, [data, matchesByStage]);
+
+  // x/y for every knockout match, computed from r32Order outward.
+  const positions = useMemo(() => {
+    const pos: Record<number, { x: number; y: number; col: number }> = {};
+    r32Order.forEach((mn, i) => {
+      pos[mn] = { x: BRACKET_PAD, y: BRACKET_PAD + i * (CARD_H + ROW_GAP), col: 0 };
+    });
+    for (let ri = 1; ri < BRACKET_STAGES.length; ri++) {
+      const stage = BRACKET_STAGES[ri];
+      const x = BRACKET_PAD + ri * (CARD_W + COL_GAP);
+      for (const m of (matchesByStage[stage] || [])) {
+        const feeders: number[] = [];
+        if (m.team1_slot.startsWith("W")) feeders.push(+m.team1_slot.slice(1));
+        if (m.team2_slot.startsWith("W")) feeders.push(+m.team2_slot.slice(1));
+        if (feeders.length === 2 && pos[feeders[0]] && pos[feeders[1]]) {
+          const y = (pos[feeders[0]].y + pos[feeders[1]].y) / 2;
+          pos[m.match_no] = { x, y, col: ri };
+        }
+      }
+    }
+    return pos;
+  }, [r32Order, matchesByStage]);
+
+  // SVG paths connecting feeders → successors.
+  const connectors = useMemo(() => {
+    const paths: string[] = [];
+    for (let ri = 1; ri < BRACKET_STAGES.length; ri++) {
+      const stage = BRACKET_STAGES[ri];
+      for (const m of (matchesByStage[stage] || [])) {
+        const succ = positions[m.match_no];
+        if (!succ) continue;
+        const feeders: number[] = [];
+        if (m.team1_slot.startsWith("W")) feeders.push(+m.team1_slot.slice(1));
+        if (m.team2_slot.startsWith("W")) feeders.push(+m.team2_slot.slice(1));
+        for (const f of feeders) {
+          const feeder = positions[f];
+          if (!feeder) continue;
+          const fx = feeder.x + CARD_W;
+          const fy = feeder.y + CARD_H / 2;
+          const sx = succ.x;
+          const sy = succ.y + CARD_H / 2;
+          const midX = (fx + sx) / 2;
+          paths.push(`M ${fx} ${fy} L ${midX} ${fy} L ${midX} ${sy} L ${sx} ${sy}`);
+        }
+      }
+    }
+    return paths;
+  }, [positions, matchesByStage]);
+
+  const bracketW = BRACKET_PAD * 2 + BRACKET_STAGES.length * CARD_W + (BRACKET_STAGES.length - 1) * COL_GAP;
+  const bracketH = BRACKET_PAD * 2 + Math.max(r32Order.length, 1) * (CARD_H + ROW_GAP) - ROW_GAP;
 
   return (
     <article>
       <SectionTitle
         kicker="§ II — The Bracket"
-        title="Forty-eight enter. One lifts."
-        lede="Projected bracket based on ELO and live results. Italicised names are predicted, not yet confirmed. Run the simulation to overlay championship probability."
+        title="The tree."
+        lede="Round of 32 on the left, the Final on the right. Italicised names are ELO projections; upright names are locked. Scroll to pan; use the controls to zoom."
       />
-      {stages.map((stage) => {
-        const ms = matchesByStage[stage] || [];
-        if (!ms.length) return null;
-        return (
-          <section key={stage} style={{ marginBottom: 26 }}>
-            <div style={{
-              display: "flex", alignItems: "center", gap: 12, marginBottom: 12,
+
+      <div style={{
+        display: "flex", alignItems: "center", gap: 8,
+        marginBottom: 14, flexWrap: "wrap",
+      }}>
+        <span style={{
+          fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
+          color: ink.muted, letterSpacing: 1.5, textTransform: "uppercase",
+          fontWeight: 700, marginRight: 6,
+        }}>Zoom</span>
+        <button data-p26 onClick={() => setZoom((z) => Math.max(0.3, +(z - 0.1).toFixed(2)))} style={zoomBtnStyle()}>−</button>
+        <span style={{
+          fontFamily: "'JetBrains Mono', monospace", fontSize: 12,
+          fontWeight: 700, color: ink.ink, minWidth: 50, textAlign: "center",
+        }}>{Math.round(zoom * 100)}%</span>
+        <button data-p26 onClick={() => setZoom((z) => Math.min(2, +(z + 0.1).toFixed(2)))} style={zoomBtnStyle()}>+</button>
+        <button data-p26 onClick={() => setZoom(1)} style={zoomBtnStyle()}>1×</button>
+        <button data-p26 onClick={() => setZoom(0.5)} style={zoomBtnStyle()}>Fit</button>
+      </div>
+
+      <div style={{
+        overflow: "auto",
+        border: `1.5px solid ${ink.rule}`,
+        background: ink.paper,
+        maxHeight: "75vh",
+        boxShadow: `3px 3px 0 ${ink.rule}`,
+      }}>
+        <div style={{
+          width: bracketW * zoom,
+          height: bracketH * zoom,
+          position: "relative",
+        }}>
+          <div style={{
+            width: bracketW,
+            height: bracketH,
+            transformOrigin: "top left",
+            transform: `scale(${zoom})`,
+            position: "absolute",
+            top: 0, left: 0,
+          }}>
+            <svg width={bracketW} height={bracketH} style={{
+              position: "absolute", top: 0, left: 0, pointerEvents: "none",
             }}>
-              <h3 style={{
-                margin: 0,
-                fontFamily: "'Fraunces', serif",
-                fontStyle: "italic", fontWeight: 600, fontSize: 22, color: ink.ink,
-                letterSpacing: -0.5,
-              }}>{stage}</h3>
-              <div style={{ flex: 1, height: 1, background: ink.rule }} />
-              <span style={{
-                fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
-                color: ink.muted, letterSpacing: 1.5, textTransform: "uppercase",
-              }}>{ms.length} fixtures</span>
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))", gap: 10, position: "relative" }}>
-              {ms.map((m) => {
-                const nextMMs = bracketTree[`M${m.match_no}`]?.nextMatches || [];
-                return (
-                  <div key={m.match_no} style={{
-                    background: ink.paper,
-                    border: `1.5px solid ${ink.rule}`,
-                    padding: 12,
-                    fontSize: 13,
-                    boxShadow: `2px 2px 0 ${ink.rule}`,
-                    position: "relative",
-                  }}>
-                    <div style={{
-                      display: "flex", justifyContent: "space-between",
-                      fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
-                      color: ink.muted, letterSpacing: 1, marginBottom: 8,
-                      textTransform: "uppercase",
-                    }}>
-                      <span>Match {String(m.match_no).padStart(3, "0")}</span>
-                      <span>{m.date.slice(5, 10)} · {m.venue.split(",")[0].slice(0, 14)}</span>
-                    </div>
-                    <SlotRow slot={m.team1_slot} teams={data.teams} champPct={champPct} projection={projection} />
-                    <div style={{
-                      fontFamily: "'Fraunces', serif", fontStyle: "italic",
-                      color: ink.oxblood, fontSize: 12, textAlign: "center",
-                      margin: "2px 0",
-                    }}>vs.</div>
-                    <SlotRow slot={m.team2_slot} teams={data.teams} champPct={champPct} projection={projection} />
-                    {nextMMs.length > 0 && (
-                      <div style={{
-                        marginTop: 8, paddingTop: 8, borderTop: `1px dashed ${ink.faint}`,
-                        fontFamily: "'JetBrains Mono', monospace", fontSize: 9,
-                        color: ink.faint, lineHeight: 1.3,
-                      }}>
-                        → M{nextMMs.map((nm) => String(nm).padStart(3, "0")).join(", M")}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        );
-      })}
+              {connectors.map((d, i) => (
+                <path key={i} d={d} stroke={ink.faint} strokeWidth={1.2} fill="none" />
+              ))}
+            </svg>
+            {BRACKET_STAGES.map((stage, ri) => (
+              <div key={stage} style={{
+                position: "absolute",
+                left: BRACKET_PAD + ri * (CARD_W + COL_GAP),
+                top: 2,
+                width: CARD_W,
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 10, letterSpacing: 1.5, textTransform: "uppercase",
+                color: ink.oxblood, textAlign: "center",
+                fontWeight: 700,
+                pointerEvents: "none",
+              }}>{stage}</div>
+            ))}
+            {Object.entries(positions).map(([mNoStr, p]) => {
+              const matchNo = +mNoStr;
+              const match = data.matches.find((m) => m.match_no === matchNo);
+              if (!match) return null;
+              return (
+                <div key={matchNo} style={{
+                  position: "absolute",
+                  left: p.x, top: p.y,
+                  width: CARD_W, height: CARD_H,
+                }}>
+                  <BracketMatchCard match={match} teams={data.teams}
+                    projection={projection} champPct={champPct} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {thirdPlace && (
+        <div style={{ marginTop: 22 }}>
+          <h3 style={{
+            margin: "0 0 10px",
+            fontFamily: "'Fraunces', serif", fontStyle: "italic",
+            fontWeight: 600, fontSize: 18, color: ink.ink,
+          }}>Third place play-off</h3>
+          <div style={{ width: CARD_W * 1.3, height: CARD_H }}>
+            <BracketMatchCard match={thirdPlace} teams={data.teams}
+              projection={projection} champPct={champPct} />
+          </div>
+        </div>
+      )}
     </article>
   );
 }
 
-function SlotRow({ slot, teams, champPct, projection }: {
+function BracketMatchCard({ match, teams, projection, champPct }: {
+  match: Match;
+  teams: Record<string, Team>;
+  projection: Record<string, { name: string; confirmed: boolean }>;
+  champPct: (n?: string) => number | null;
+}) {
+  return (
+    <div style={{
+      border: `1px solid ${ink.rule}`,
+      background: ink.paper,
+      padding: "4px 8px",
+      width: "100%",
+      height: "100%",
+      boxSizing: "border-box",
+      overflow: "hidden",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+    }}>
+      <div style={{
+        fontFamily: "'JetBrains Mono', monospace", fontSize: 9,
+        color: ink.muted, letterSpacing: 1,
+        display: "flex", justifyContent: "space-between",
+      }}>
+        <span>M{String(match.match_no).padStart(3, "0")}</span>
+        <span>{match.date.slice(5, 10)}</span>
+      </div>
+      <BracketSlot slot={match.team1_slot} teams={teams} projection={projection} champPct={champPct} />
+      <BracketSlot slot={match.team2_slot} teams={teams} projection={projection} champPct={champPct} />
+    </div>
+  );
+}
+
+function BracketSlot({ slot, teams, projection, champPct }: {
   slot: string;
   teams: Record<string, Team>;
+  projection: Record<string, { name: string; confirmed: boolean }>;
   champPct: (n?: string) => number | null;
-  projection?: Record<string, { name: string; confirmed: boolean }>;
 }) {
-  const directTeam = teams[slot]; // only set for raw draw positions (A1, B2…) — never for KO slots
+  const directTeam = teams[slot];
   const proj = directTeam
     ? { name: directTeam.name, confirmed: true }
     : (projection?.[slot] ?? null);
@@ -1478,22 +1617,38 @@ function SlotRow({ slot, teams, champPct, projection }: {
   return (
     <div style={{
       display: "flex", justifyContent: "space-between", alignItems: "center",
-      padding: "4px 0",
+      gap: 4, lineHeight: 1.15,
       color: proj ? (isProjected ? ink.muted : ink.ink) : ink.faint,
       fontFamily: "'Fraunces', serif",
-      fontSize: proj ? 15 : 13,
-      fontWeight: proj ? (isProjected ? 400 : 600) : 400,
+      fontSize: 13, fontWeight: isProjected || !proj ? 400 : 600,
       fontStyle: isProjected || !proj ? "italic" : "normal",
     }}>
-      <span>{label}</span>
+      <span title={label} style={{
+        overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis",
+        flex: 1, minWidth: 0,
+      }}>{label}</span>
       {c !== null && c >= 0.005 && (
         <span style={{
           color: isProjected ? ink.faint : ink.oxblood,
-          fontFamily: "'JetBrains Mono', monospace", fontSize: 11, fontWeight: 700,
+          fontFamily: "'JetBrains Mono', monospace", fontSize: 10, fontWeight: 700,
+          flexShrink: 0,
         }}>{fmtPct(c)}</span>
       )}
     </div>
   );
+}
+
+function zoomBtnStyle(): React.CSSProperties {
+  return {
+    background: ink.paper,
+    color: ink.ink,
+    border: `1.5px solid ${ink.rule}`,
+    padding: "5px 12px",
+    fontFamily: "'JetBrains Mono', monospace",
+    fontSize: 12, fontWeight: 700,
+    cursor: "pointer",
+    minWidth: 36,
+  };
 }
 
 function slotLabel(slot: string): string {

@@ -94,19 +94,22 @@ The TypeScript port uses **mulberry32** as a deterministic PRNG and Knuth's algo
 
 ## Recent UX improvements (2026-06-19)
 
-### Bracket visualization
-- Added flow indicators on match cards showing which matches feed into the next round (→ M045, M046)
-- Helps users understand bracket structure and match progression at a glance
+### Bracket — tree view replaces the card grid
+- Replaced the grid-of-cards bracket with a horizontal tree: R32 on the left, Final on the right, SVG connectors between rounds
+- R32 ordering is computed by walking the bracket from the Final, so feeder matches always sit adjacent to their successor and connectors never cross
+- Each round is positioned absolutely; cards in rounds 2+ sit at the midpoint y of their two feeders
+- Wrapped in an `overflow: auto` container with `maxHeight: 75vh` for scroll, plus zoom controls (30%–200%, 10% steps, plus 1× and Fit presets) applied via `transform: scale()` with `transformOrigin: top left`
+- Cards are compact (200×64) with M-number + date header and two slot rows; team names truncate via `text-overflow: ellipsis` with `title` attribute fallback for full name on hover
+- Third-place match is shown separately below the main tree (it doesn't sit on the winners' tree)
 
-### Match logger responsive layout
-- Changed grid from fixed `1fr 64px auto 64px 1fr` to `minmax(120px, 1fr) 60px auto 60px minmax(120px, 1fr)`
-- Team names now wrap and expand rather than truncate with ellipsis
-- Allows full team names like "Dominican Republic" to be readable when logging results
-- Added `wordWrap: "break-word"` and `wordBreak: "break-word"` with `minWidth: 0` for flex-safe wrapping
+### Match logger overflow fix
+- Inner LogRow grid: `minmax(0, 1fr) 52px auto 52px minmax(0, 1fr)` (was `minmax(120px, 1fr) 60px auto 60px minmax(120px, 1fr)` — the 120px floor was wider than the card itself at narrow widths, causing names to bleed into adjacent cards)
+- Team-name cells now use `overflow: hidden; text-overflow: ellipsis; white-space: nowrap` with `title` attribute so full names show on hover
+- Card itself gets `overflow: hidden; minWidth: 0` to contain children even if the grid is squeezed
+- Outer card grid widened from `minmax(300px,1fr)` to `minmax(340px,1fr)` for more breathing room before truncation kicks in
 
 ## Things NOT yet ported to /predict26 (vs. Streamlit)
 
-- Bracket card "advancement probability" inline number (the Python version shows a per-card Adv% next to each team).
 - ELO-overrides persistence across page reloads.
 
 Add these by editing `web/routes/page-predict26.tsx` and redeploying.
