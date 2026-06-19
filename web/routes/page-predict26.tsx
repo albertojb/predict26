@@ -1168,7 +1168,7 @@ function LogRow({ match, teams, logged, setLogged }: {
       border: `1.5px solid ${ink.rule}`,
       padding: "10px 12px",
       display: "grid",
-      gridTemplateColumns: "1fr 64px auto 64px 1fr",
+      gridTemplateColumns: "minmax(120px, 1fr) 60px auto 60px minmax(120px, 1fr)",
       gap: 8, alignItems: "center",
       opacity: hasTeams ? 1 : 0.55,
     }}>
@@ -1177,7 +1177,9 @@ function LogRow({ match, teams, logged, setLogged }: {
         fontFamily: "'Fraunces', serif",
         fontSize: hasTeams ? 15 : 12, fontStyle: hasTeams ? "normal" : "italic",
         fontWeight: hasTeams ? 600 : 400, color: hasTeams ? ink.ink : ink.muted,
-        overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+        minWidth: 0,
+        wordWrap: "break-word",
+        wordBreak: "break-word",
       }}>{label1}</div>
       <input
         data-p26
@@ -1225,7 +1227,9 @@ function LogRow({ match, teams, logged, setLogged }: {
         fontFamily: "'Fraunces', serif",
         fontSize: hasTeams ? 15 : 12, fontStyle: hasTeams ? "normal" : "italic",
         fontWeight: hasTeams ? 600 : 400, color: hasTeams ? ink.ink : ink.muted,
-        overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+        minWidth: 0,
+        wordWrap: "break-word",
+        wordBreak: "break-word",
       }}>{label2}</div>
     </div>
   );
@@ -1361,6 +1365,27 @@ function BracketTab({ data, results, eloOverrides }: {
     return c.champion / results.n;
   };
 
+  // Build bracket tree showing match relationships
+  const bracketTree = useMemo(() => {
+    const tree: Record<string, { incoming: string[]; nextStage?: string; nextMatches: number[] }> = {};
+    for (const m of data.matches) {
+      if (m.stage.startsWith("Group")) continue;
+      if (!tree[`M${m.match_no}`]) tree[`M${m.match_no}`] = { incoming: [], nextMatches: [] };
+    }
+    // Connect winners to next round
+    for (const m of data.matches) {
+      if (m.stage.startsWith("Group")) continue;
+      const nextMatches = data.matches.filter(
+        (nm) => (nm.team1_slot === `W${m.match_no}` || nm.team2_slot === `W${m.match_no}`),
+      );
+      const nextMatches3 = data.matches.filter(
+        (nm) => (nm.team1_slot === `RU${m.match_no}` || nm.team2_slot === `RU${m.match_no}`),
+      );
+      tree[`M${m.match_no}`].nextMatches = [...nextMatches, ...nextMatches3].map((x) => x.match_no);
+    }
+    return tree;
+  }, [data]);
+
   return (
     <article>
       <SectionTitle
@@ -1388,33 +1413,46 @@ function BracketTab({ data, results, eloOverrides }: {
                 color: ink.muted, letterSpacing: 1.5, textTransform: "uppercase",
               }}>{ms.length} fixtures</span>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(260px,1fr))", gap: 10 }}>
-              {ms.map((m) => (
-                <div key={m.match_no} style={{
-                  background: ink.paper,
-                  border: `1.5px solid ${ink.rule}`,
-                  padding: 12,
-                  fontSize: 13,
-                  boxShadow: `2px 2px 0 ${ink.rule}`,
-                }}>
-                  <div style={{
-                    display: "flex", justifyContent: "space-between",
-                    fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
-                    color: ink.muted, letterSpacing: 1, marginBottom: 8,
-                    textTransform: "uppercase",
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))", gap: 10, position: "relative" }}>
+              {ms.map((m) => {
+                const nextMMs = bracketTree[`M${m.match_no}`]?.nextMatches || [];
+                return (
+                  <div key={m.match_no} style={{
+                    background: ink.paper,
+                    border: `1.5px solid ${ink.rule}`,
+                    padding: 12,
+                    fontSize: 13,
+                    boxShadow: `2px 2px 0 ${ink.rule}`,
+                    position: "relative",
                   }}>
-                    <span>Match {String(m.match_no).padStart(3, "0")}</span>
-                    <span>{m.date.slice(5, 10)} · {m.venue.split(",")[0].slice(0, 14)}</span>
+                    <div style={{
+                      display: "flex", justifyContent: "space-between",
+                      fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
+                      color: ink.muted, letterSpacing: 1, marginBottom: 8,
+                      textTransform: "uppercase",
+                    }}>
+                      <span>Match {String(m.match_no).padStart(3, "0")}</span>
+                      <span>{m.date.slice(5, 10)} · {m.venue.split(",")[0].slice(0, 14)}</span>
+                    </div>
+                    <SlotRow slot={m.team1_slot} teams={data.teams} champPct={champPct} projection={projection} />
+                    <div style={{
+                      fontFamily: "'Fraunces', serif", fontStyle: "italic",
+                      color: ink.oxblood, fontSize: 12, textAlign: "center",
+                      margin: "2px 0",
+                    }}>vs.</div>
+                    <SlotRow slot={m.team2_slot} teams={data.teams} champPct={champPct} projection={projection} />
+                    {nextMMs.length > 0 && (
+                      <div style={{
+                        marginTop: 8, paddingTop: 8, borderTop: `1px dashed ${ink.faint}`,
+                        fontFamily: "'JetBrains Mono', monospace", fontSize: 9,
+                        color: ink.faint, lineHeight: 1.3,
+                      }}>
+                        → M{nextMMs.map((nm) => String(nm).padStart(3, "0")).join(", M")}
+                      </div>
+                    )}
                   </div>
-                  <SlotRow slot={m.team1_slot} teams={data.teams} champPct={champPct} projection={projection} />
-                  <div style={{
-                    fontFamily: "'Fraunces', serif", fontStyle: "italic",
-                    color: ink.oxblood, fontSize: 12, textAlign: "center",
-                    margin: "2px 0",
-                  }}>vs.</div>
-                  <SlotRow slot={m.team2_slot} teams={data.teams} champPct={champPct} projection={projection} />
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
         );

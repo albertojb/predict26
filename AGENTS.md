@@ -92,9 +92,20 @@ python -m pytest tests/ -v
 
 The TypeScript port uses **mulberry32** as a deterministic PRNG and Knuth's algorithm for Poisson sampling (λ stays small enough in this domain). Output matches Python's NumPy reference to 6 decimal places on `match_probs`, `expected_goals`, and `ko_advancement_prob`.
 
+## Recent UX improvements (2026-06-19)
+
+### Bracket visualization
+- Added flow indicators on match cards showing which matches feed into the next round (→ M045, M046)
+- Helps users understand bracket structure and match progression at a glance
+
+### Match logger responsive layout
+- Changed grid from fixed `1fr 64px auto 64px 1fr` to `minmax(120px, 1fr) 60px auto 60px minmax(120px, 1fr)`
+- Team names now wrap and expand rather than truncate with ellipsis
+- Allows full team names like "Dominican Republic" to be readable when logging results
+- Added `wordWrap: "break-word"` and `wordBreak: "break-word"` with `minWidth: 0` for flex-safe wrapping
+
 ## Things NOT yet ported to /predict26 (vs. Streamlit)
 
-- "Log Results" tab (session-local score + KO overrides). The API already accepts `scoreOverrides` and `koOverrides` — only the UI is missing.
 - Bracket card "advancement probability" inline number (the Python version shows a per-card Adv% next to each team).
 - ELO-overrides persistence across page reloads.
 
