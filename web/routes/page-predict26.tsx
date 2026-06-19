@@ -38,9 +38,30 @@ const ink = {
 const fmtPct = (x: number) => `${(x * 100).toFixed(1)}%`;
 const fmtPctTight = (x: number) => `${(x * 100).toFixed(0)}%`;
 
-function injectFonts() {
+function injectHead() {
   if (typeof document === "undefined") return;
   if (document.getElementById("predict26-fonts")) return;
+
+  document.title = "Predict26 — World Cup 2026 ELO & Monte-Carlo Simulator";
+
+  const meta = (attrs: Record<string, string>) => {
+    const key = attrs.name ? `name="${attrs.name}"` : `property="${attrs.property}"`;
+    const existing = document.head.querySelector(`meta[${key}]`);
+    const m = existing || document.createElement("meta");
+    for (const [k, v] of Object.entries(attrs)) m.setAttribute(k, v);
+    if (!existing) document.head.appendChild(m);
+  };
+  const desc = "An ELO and Monte-Carlo reckoning of the 2026 FIFA World Cup. 48 teams, 104 fixtures, ten thousand simulated futures.";
+  meta({ name: "description", content: desc });
+  meta({ name: "theme-color", content: "#7A1E1E" });
+  meta({ property: "og:title", content: "Predict26 — The World Cup Annual" });
+  meta({ property: "og:description", content: desc });
+  meta({ property: "og:type", content: "website" });
+  meta({ property: "og:url", content: "https://sail.zo.space/predict26" });
+  meta({ name: "twitter:card", content: "summary_large_image" });
+  meta({ name: "twitter:title", content: "Predict26 — The World Cup Annual" });
+  meta({ name: "twitter:description", content: desc });
+
   const pre1 = document.createElement("link");
   pre1.rel = "preconnect"; pre1.href = "https://fonts.googleapis.com"; pre1.id = "predict26-fonts";
   document.head.appendChild(pre1);
@@ -66,7 +87,7 @@ export default function Predict26() {
   const [simErr, setSimErr] = useState<string | null>(null);
 
   useEffect(() => {
-    injectFonts();
+    injectHead();
     fetch("/api/predict26/data", { headers: { Accept: "application/json" } })
       .then(async (r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
