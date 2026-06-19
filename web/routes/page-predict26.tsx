@@ -16,8 +16,9 @@ type Stage = "group" | "r32" | "r16" | "qf" | "sf" | "final" | "champion";
 type Counts = Record<string, Record<Stage, number>>;
 type DataResp = { teams: Record<string, Team>; matches: Match[]; assignThird: Record<string, Record<string, string>> };
 
-const KOFI_HANDLE = "albertojb";
+const KOFI_HANDLE = "kekojb";
 const GITHUB_URL = "https://github.com/albertojb/predict26";
+const AUTHOR_NAME = "Alberto Jiménez Bákit";
 
 const ink = {
   paper: "#F2EBDC",
@@ -58,9 +59,6 @@ function injectHead() {
   meta({ property: "og:description", content: desc });
   meta({ property: "og:type", content: "website" });
   meta({ property: "og:url", content: "https://sail.zo.space/predict26" });
-  meta({ name: "twitter:card", content: "summary_large_image" });
-  meta({ name: "twitter:title", content: "Predict26 — The World Cup Annual" });
-  meta({ name: "twitter:description", content: desc });
 
   const pre1 = document.createElement("link");
   pre1.rel = "preconnect"; pre1.href = "https://fonts.googleapis.com"; pre1.id = "predict26-fonts";
@@ -74,10 +72,26 @@ function injectHead() {
   document.head.appendChild(link);
 }
 
+const LOGGED_LS_KEY = "predict26-logged-v1";
+
+function loadLogged(): Record<number, [number, number]> {
+  if (typeof localStorage === "undefined") return {};
+  try {
+    const raw = JSON.parse(localStorage.getItem(LOGGED_LS_KEY) || "{}");
+    const out: Record<number, [number, number]> = {};
+    for (const [k, v] of Object.entries(raw)) {
+      if (Array.isArray(v) && v.length === 2 && Number.isFinite(v[0]) && Number.isFinite(v[1])) {
+        out[+k] = [v[0] as number, v[1] as number];
+      }
+    }
+    return out;
+  } catch { return {}; }
+}
+
 export default function Predict26() {
   const [data, setData] = useState<DataResp | null>(null);
   const [loadErr, setLoadErr] = useState<string | null>(null);
-  const [tab, setTab] = useState<"sim" | "groups" | "match" | "bracket">("sim");
+  const [tab, setTab] = useState<"sim" | "groups" | "match" | "bracket" | "log">("sim");
 
   const [n, setN] = useState(5000);
   const [seed, setSeed] = useState(42);
@@ -85,6 +99,34 @@ export default function Predict26() {
   const [results, setResults] = useState<{ counts: Counts; n: number; elapsedMs: number } | null>(null);
   const [running, setRunning] = useState(false);
   const [simErr, setSimErr] = useState<string | null>(null);
+
+  // User-logged scorelines. matchNo → [home, away]. Persists to localStorage.
+  const [logged, setLoggedState] = useState<Record<number, [number, number]>>({});
+  useEffect(() => { setLoggedState(loadLogged()); }, []);
+
+  const setLogged = (matchNo: number, home: number | null, away: number | null) => {
+    setLoggedState((prev) => {
+      const next = { ...prev };
+      if (home === null || away === null || !Number.isFinite(home) || !Number.isFinite(away)) {
+        delete next[matchNo];
+      } else {
+        next[matchNo] = [home, away];
+      }
+      try { localStorage.setItem(LOGGED_LS_KEY, JSON.stringify(next)); } catch {}
+      return next;
+    });
+  };
+  const clearLogged = () => {
+    setLoggedState({});
+    try { localStorage.removeItem(LOGGED_LS_KEY); } catch {}
+  };
+  const mergeLogged = (incoming: Record<number, [number, number]>) => {
+    setLoggedState((prev) => {
+      const next = { ...prev, ...incoming };
+      try { localStorage.setItem(LOGGED_LS_KEY, JSON.stringify(next)); } catch {}
+      return next;
+    });
+  };
 
   useEffect(() => {
     injectHead();
@@ -95,6 +137,20 @@ export default function Predict26() {
       })
       .catch((e) => setLoadErr(String(e)));
   }, []);
+
+  // Overlay logged scores onto the canonical schedule.
+  const patchedData = useMemo<DataResp | null>(() => {
+    if (!data) return null;
+    if (Object.keys(logged).length === 0) return data;
+    return {
+      ...data,
+      matches: data.matches.map((m) => {
+        const ov = logged[m.match_no];
+        if (!ov) return m;
+        return { ...m, score_home: ov[0], score_away: ov[1], played: true };
+      }),
+    };
+  }, [data, logged]);
 
   const teamNames = useMemo(() => {
     if (!data) return [] as string[];
@@ -111,10 +167,27 @@ export default function Predict26() {
     if (running) return;
     setRunning(true); setSimErr(null);
     try {
+      // Split logged into group-stage scoreOverrides + KO koOverrides (winner name).
+      const scoreOverrides: Record<number, [number, number]> = {};
+      const koOverrides: Record<number, string> = {};
+      if (data) {
+        for (const m of data.matches) {
+          const ov = logged[m.match_no];
+          if (!ov) continue;
+          if (m.stage.startsWith("Group")) {
+            scoreOverrides[m.match_no] = ov;
+          } else if (ov[0] !== ov[1]) {
+            // KO match: derive winner team name if both slots resolve to a real team
+            const t1 = data.teams[m.team1_slot]?.name;
+            const t2 = data.teams[m.team2_slot]?.name;
+            if (t1 && t2) koOverrides[m.match_no] = ov[0] > ov[1] ? t1 : t2;
+          }
+        }
+      }
       const r = await fetch("/api/predict26/simulate", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ n, seed: seed || undefined, eloOverrides }),
+        body: JSON.stringify({ n, seed: seed || undefined, eloOverrides, scoreOverrides, koOverrides }),
       });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const j = await r.json();
@@ -161,12 +234,13 @@ export default function Predict26() {
         simErr={simErr}
         results={results}
       />
-      <Sections tab={tab} setTab={setTab} />
+      <Sections tab={tab} setTab={setTab} loggedCount={Object.keys(logged).length} />
       <div style={{ marginTop: 28 }}>
         {tab === "sim" && <SimTab results={results} nameToElo={nameToElo} eloOverrides={eloOverrides} />}
-        {tab === "groups" && <GroupsTab data={data} />}
+        {tab === "groups" && <GroupsTab data={patchedData ?? data} />}
         {tab === "match" && <MatchTab teamNames={teamNames} nameToElo={nameToElo} eloOverrides={eloOverrides} />}
-        {tab === "bracket" && <BracketTab data={data} results={results} />}
+        {tab === "bracket" && <BracketTab data={patchedData ?? data} results={results} />}
+        {tab === "log" && <LogTab data={data} logged={logged} setLogged={setLogged} clearLogged={clearLogged} mergeLogged={mergeLogged} />}
       </div>
       <Colophon />
     </Shell>
@@ -452,12 +526,15 @@ function fieldInput(): React.CSSProperties {
   };
 }
 
-function Sections({ tab, setTab }: { tab: string; setTab: (t: any) => void }) {
+function Sections({ tab, setTab, loggedCount }: {
+  tab: string; setTab: (t: any) => void; loggedCount: number;
+}) {
   const tabs: [string, string, string][] = [
     ["sim", "I.", "Tournament Odds"],
     ["bracket", "II.", "The Bracket"],
     ["groups", "III.", "Group Tables"],
     ["match", "IV.", "Match Room"],
+    ["log", "V.", loggedCount > 0 ? `Log Results · ${loggedCount}` : "Log Results"],
   ];
   return (
     <nav style={{
@@ -915,6 +992,245 @@ function MatchTab({ teamNames, nameToElo, eloOverrides }: {
   );
 }
 
+function LogTab({ data, logged, setLogged, clearLogged, mergeLogged }: {
+  data: DataResp;
+  logged: Record<number, [number, number]>;
+  setLogged: (matchNo: number, home: number | null, away: number | null) => void;
+  clearLogged: () => void;
+  mergeLogged: (incoming: Record<number, [number, number]>) => void;
+}) {
+  const [fetchState, setFetchState] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [fetchMsg, setFetchMsg] = useState<string>("");
+
+  const groupedByStage = useMemo(() => {
+    const groups: Record<string, Match[]> = {};
+    for (const m of data.matches) (groups[m.stage] ||= []).push(m);
+    for (const k of Object.keys(groups)) groups[k].sort((a, b) => a.match_no - b.match_no);
+    return groups;
+  }, [data]);
+
+  // Order: A–L then KO stages in order.
+  const stageOrder = useMemo(() => {
+    const groupKeys = Object.keys(groupedByStage)
+      .filter((s) => s.startsWith("Group "))
+      .sort();
+    const koKeys = ["Round of 32", "Round of 16", "Quarter-final", "Semi-final", "Third place", "Final"]
+      .filter((s) => groupedByStage[s]);
+    return [...groupKeys, ...koKeys];
+  }, [groupedByStage]);
+
+  const fetchFromWeb = async () => {
+    setFetchState("loading"); setFetchMsg("");
+    try {
+      const r = await fetch("/api/predict26/fetch-results", { headers: { Accept: "application/json" } });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const j = await r.json();
+      const incoming: Record<number, [number, number]> = {};
+      for (const [k, v] of Object.entries(j.results || {})) {
+        if (Array.isArray(v) && v.length === 2) incoming[+k] = [v[0] as number, v[1] as number];
+      }
+      const count = Object.keys(incoming).length;
+      mergeLogged(incoming);
+      setFetchState("done");
+      setFetchMsg(`Pulled ${count} result${count === 1 ? "" : "s"} from ${j.source || "the web"}.`);
+    } catch (e) {
+      setFetchState("error");
+      setFetchMsg(String(e));
+    }
+  };
+
+  const total = data.matches.length;
+  const loggedCount = Object.keys(logged).length;
+  const realPlayed = data.matches.filter((m) => m.played).length;
+
+  return (
+    <article>
+      <SectionTitle
+        kicker="§ V — Log Results"
+        title="Replace the model with reality."
+        lede="Enter scorelines as matches finish. Group tables and the bracket update at once; cast the bones again to refold the odds around what actually happened."
+      />
+
+      <div style={{
+        ...paperBlock(), marginBottom: 18,
+        display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap",
+      }}>
+        <div style={{
+          fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
+          color: ink.muted, letterSpacing: 1, textTransform: "uppercase",
+        }}>
+          {realPlayed} locked · <span style={{ color: ink.oxblood, fontWeight: 700 }}>{loggedCount} logged</span> · {total - realPlayed - loggedCount} pending
+        </div>
+        <button
+          data-p26
+          onClick={fetchFromWeb}
+          disabled={fetchState === "loading"}
+          style={{
+            background: fetchState === "loading" ? ink.paperDeep : ink.pitch,
+            color: ink.paper,
+            border: `1.5px solid ${ink.rule}`,
+            padding: "10px 16px",
+            fontFamily: "'Fraunces', serif", fontWeight: 700, fontSize: 14,
+            cursor: fetchState === "loading" ? "default" : "pointer",
+            boxShadow: `3px 3px 0 ${ink.rule}`,
+          }}
+        >
+          {fetchState === "loading" ? "Pulling…" : "Auto-fetch from web"}
+        </button>
+        {loggedCount > 0 && (
+          <button
+            data-p26
+            onClick={() => { if (confirm("Clear all logged results?")) clearLogged(); }}
+            style={{
+              background: "transparent", color: ink.ink,
+              border: `1.5px solid ${ink.rule}`,
+              padding: "10px 14px",
+              fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
+              letterSpacing: 1.5, textTransform: "uppercase", cursor: "pointer",
+            }}
+          >
+            Clear logged
+          </button>
+        )}
+        {fetchMsg && (
+          <span style={{
+            fontFamily: "'Fraunces', serif", fontStyle: "italic", fontSize: 14,
+            color: fetchState === "error" ? ink.oxblood : ink.inkSoft,
+          }}>{fetchMsg}</span>
+        )}
+      </div>
+
+      {stageOrder.map((stage) => {
+        const ms = groupedByStage[stage] || [];
+        if (!ms.length) return null;
+        return (
+          <section key={stage} style={{ marginBottom: 20 }}>
+            <div style={{
+              display: "flex", alignItems: "center", gap: 12, marginBottom: 10,
+            }}>
+              <h3 style={{
+                margin: 0,
+                fontFamily: "'Fraunces', serif", fontStyle: "italic",
+                fontWeight: 600, fontSize: 18, color: ink.ink, letterSpacing: -0.3,
+              }}>{stage}</h3>
+              <div style={{ flex: 1, height: 1, background: ink.rule }} />
+            </div>
+            <div style={{
+              display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))",
+              gap: 8,
+            }}>
+              {ms.map((m) => (
+                <LogRow key={m.match_no} match={m} teams={data.teams}
+                  logged={logged[m.match_no]} setLogged={setLogged} />
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </article>
+  );
+}
+
+function LogRow({ match, teams, logged, setLogged }: {
+  match: Match; teams: Record<string, Team>;
+  logged: [number, number] | undefined;
+  setLogged: (matchNo: number, home: number | null, away: number | null) => void;
+}) {
+  const t1 = teams[match.team1_slot];
+  const t2 = teams[match.team2_slot];
+  const hasTeams = !!t1 && !!t2;
+  const isReal = match.played && match.score_home != null && !logged;
+  const isLogged = !!logged;
+
+  const [h, setH] = useState<string>(() => logged ? String(logged[0]) : "");
+  const [a, setA] = useState<string>(() => logged ? String(logged[1]) : "");
+  useEffect(() => {
+    setH(logged ? String(logged[0]) : "");
+    setA(logged ? String(logged[1]) : "");
+  }, [logged]);
+
+  const commit = (newH: string, newA: string) => {
+    const ph = newH.trim() === "" ? null : parseInt(newH, 10);
+    const pa = newA.trim() === "" ? null : parseInt(newA, 10);
+    if (ph == null || pa == null || !Number.isFinite(ph) || !Number.isFinite(pa)) {
+      setLogged(match.match_no, null, null);
+    } else {
+      setLogged(match.match_no, Math.max(0, ph), Math.max(0, pa));
+    }
+  };
+
+  const label1 = t1?.name ?? slotLabel(match.team1_slot);
+  const label2 = t2?.name ?? slotLabel(match.team2_slot);
+
+  return (
+    <div style={{
+      background: isLogged ? "rgba(122,30,30,0.04)" : isReal ? "rgba(47,82,48,0.05)" : ink.paper,
+      border: `1.5px solid ${ink.rule}`,
+      padding: "10px 12px",
+      display: "grid",
+      gridTemplateColumns: "1fr 64px auto 64px 1fr",
+      gap: 8, alignItems: "center",
+      opacity: hasTeams ? 1 : 0.55,
+    }}>
+      <div style={{
+        textAlign: "right",
+        fontFamily: "'Fraunces', serif",
+        fontSize: hasTeams ? 15 : 12, fontStyle: hasTeams ? "normal" : "italic",
+        fontWeight: hasTeams ? 600 : 400, color: hasTeams ? ink.ink : ink.muted,
+        overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+      }}>{label1}</div>
+      <input
+        data-p26
+        type="number" min={0} max={99} step={1}
+        value={isReal ? String(match.score_home) : h}
+        disabled={!hasTeams || isReal}
+        onChange={(e) => { setH(e.target.value); commit(e.target.value, a); }}
+        placeholder="–"
+        style={{
+          background: isReal ? ink.paperDeep : ink.paper,
+          border: `1.5px solid ${ink.rule}`,
+          color: ink.ink,
+          padding: "6px 6px",
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 18, fontWeight: 700, textAlign: "center",
+          width: "100%",
+        }}
+      />
+      <span style={{
+        fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
+        color: ink.muted, letterSpacing: 1, textAlign: "center",
+      }}>
+        M{String(match.match_no).padStart(3, "0")}<br/>
+        <span style={{ color: ink.faint, fontSize: 9 }}>{match.date.slice(5, 10)}</span>
+      </span>
+      <input
+        data-p26
+        type="number" min={0} max={99} step={1}
+        value={isReal ? String(match.score_away) : a}
+        disabled={!hasTeams || isReal}
+        onChange={(e) => { setA(e.target.value); commit(h, e.target.value); }}
+        placeholder="–"
+        style={{
+          background: isReal ? ink.paperDeep : ink.paper,
+          border: `1.5px solid ${ink.rule}`,
+          color: ink.ink,
+          padding: "6px 6px",
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 18, fontWeight: 700, textAlign: "center",
+          width: "100%",
+        }}
+      />
+      <div style={{
+        textAlign: "left",
+        fontFamily: "'Fraunces', serif",
+        fontSize: hasTeams ? 15 : 12, fontStyle: hasTeams ? "normal" : "italic",
+        fontWeight: hasTeams ? 600 : 400, color: hasTeams ? ink.ink : ink.muted,
+        overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+      }}>{label2}</div>
+    </div>
+  );
+}
+
 function BracketTab({ data, results }: {
   data: DataResp;
   results: { counts: Counts; n: number; elapsedMs: number } | null;
@@ -1137,7 +1453,7 @@ function Colophon() {
           <div style={kickerStyle()}>The Source</div>
           <p style={colophonPara()}>
             Open source under <a href={GITHUB_URL + "/blob/main/LICENSE"} style={linkStyle()}>GNU GPL v3</a>.
-            Built by <a href={GITHUB_URL} style={linkStyle()}>Alberto Jiménez Bonilla</a> · {" "}
+            Built by <a href={GITHUB_URL} style={linkStyle()}>{AUTHOR_NAME}</a> · {" "}
             <a href={GITHUB_URL} style={linkStyle()}>github.com/albertojb/predict26</a>.
           </p>
         </div>
