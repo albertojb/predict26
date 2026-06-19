@@ -1,0 +1,49 @@
+slot,name,group,elo,is_host
+A1,Mexico,A,1881,true
+A2,South Africa,A,1511,false
+A3,Rep. of Korea,A,1786,false
+A4,Czech Rep.,A,1712,false
+B1,Canada,B,1767,true
+B2,Bosnia/Herzeg.,B,1616,false
+B3,Qatar,B,1447,false
+B4,Switzerland,B,1865,false
+C1,Brazil,C,1978,false
+C2,Morocco,C,1840,false
+C3,Haiti,C,1536,false
+C4,Scotland,C,1794,false
+D1,USA,D,1780,true
+D2,Paraguay,D,1780,false
+D3,Australia,D,1839,false
+D4,Turkey,D,1849,false
+E1,Germany,E,1939,false
+E2,Curaçao,E,1427,false
+E3,Ivory Coast,E,1743,false
+E4,Ecuador,E,1890,false
+F1,Netherlands,F,1944,false
+F2,Japan,F,1910,false
+F3,Sweden,F,1755,false
+F4,Tunisia,F,1585,false
+G1,Belgium,G,1879,false
+G2,Egypt,G,1711,false
+G3,IR Iran,G,1756,false
+G4,New Zealand,G,1578,false
+H1,Spain,H,2129,false
+H2,Cape Verde,H,1606,false
+H3,Saudi Arabia,H,1598,false
+H4,Uruguay,H,1870,false
+I1,France,I,2084,false
+I2,Senegal,I,1839,false
+I3,Iraq,I,1592,false
+I4,Norway,I,1929,false
+J1,Argentina,J,2128,false
+J2,Algeria,J,1759,false
+J3,Austria,J,1857,false
+J4,Jordan,J,1653,false
+K1,Portugal,K,1967,false
+K2,DR Congo,K,1674,false
+K3,Uzbekistan,K,1698,false
+K4,Colombia,K,1998,false
+L1,England,L,2055,false
+L2,Croatia,L,1881,false
+L3,Ghana,L,1557,false
+L4,Panama,L,1683,false

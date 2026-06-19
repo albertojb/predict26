@@ -1,0 +1,4952 @@
+{
+  "EFGHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "DFGHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "DEGHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "DEFHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "DEFGIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "DEFGHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "DEFGHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "DEFGHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "DEFGHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "CFGHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CEGHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CEFHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CEFGIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CEFGHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CEFGHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CEFGHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "CEFGHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "CDGHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDFHIJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDFGIJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDFGHJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDFGHIKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDFGHIJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "CDFGHIJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "CDEHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDEGIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDEGHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDEGHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDEGHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "CDEGHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "CDEFIJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDEFHJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDEFHIKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDEFHIJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "CDEFHIJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "CDEFGJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDEFGIKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDEFGIJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "CDEFGIJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "CDEFGHKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "CDEFGHJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "CDEFGHJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "CDEFGHIL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "CDEFGHIK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "CDEFGHIJ": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "BFGHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BEGHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "B",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BEFHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BEFGIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BEFGHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BEFGHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BEFGHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BEFGHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BDGHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDFHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDFGIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDFGHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDFGHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDFGHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BDFGHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BDEHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDEGIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDEGHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDEGHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDEGHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BDEGHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BDEFIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDEFHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDEFHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDEFHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BDEFHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BDEFGJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDEFGIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDEFGIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BDEFGIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BDEFGHKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BDEFGHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "BDEFGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "BDEFGHIL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BDEFGHIK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BDEFGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "BCGHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCFHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCFGIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCFGHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCFGHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCFGHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCFGHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCEHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCEGIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCEGHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCEGHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCEGHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCEGHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCEFIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCEFHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCEFHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCEFHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCEFHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCEFGJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCEFGIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCEFGIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCEFGIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCEFGHKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCEFGHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "BCEFGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "BCEFGHIL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCEFGHIK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCEFGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "BCDHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDGIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDGHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDGHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDGHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCDGHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCDFIJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDFHJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDFHIKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDFHIJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCDFHIJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCDFGJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDFGIKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDFGIJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCDFGIJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCDFGHKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDFGHJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "J"
+  },
+  "BCDFGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "K"
+  },
+  "BCDFGHIL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCDFGHIK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCDFGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "I"
+  },
+  "BCDEIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDEHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDEHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDEHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCDEHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCDEGJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDEGIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDEGIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCDEGIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCDEGHKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDEGHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "BCDEGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "D",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "BCDEGHIL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCDEGHIK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCDEGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "D",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "BCDEFJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "E",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDEFIKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDEFIJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "E",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCDEFIJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "E",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCDEFHKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDEFHJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "BCDEFHJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "BCDEFHIL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCDEFHIK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCDEFHIJ": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "BCDEFGKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "E",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "BCDEFGJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "BCDEFGJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "BCDEFGIL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "E",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "BCDEFGIK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "E",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "BCDEFGIJ": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "BCDEFGHL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "BCDEFGHK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "BCDEFGHJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "J",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "E"
+  },
+  "BCDEFGHI": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "AFGHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "AEGHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "AEFHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "AEFGIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "AEFGHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "AEFGHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "AEFGHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "AEFGHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ADGHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADFHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADFGIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADFGHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADFGHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADFGHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ADFGHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ADEHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADEGIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADEGHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADEGHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADEGHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ADEGHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ADEFIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADEFHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADEFHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADEFHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ADEFHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ADEFGJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADEFGIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADEFGIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ADEFGIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ADEFGHKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ADEFGHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ADEFGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ADEFGHIL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ADEFGHIK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ADEFGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ACGHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACFHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACFGIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACFGHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACFGHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACFGHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACFGHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACEHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACEGIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACEGHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACEGHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACEGHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACEGHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACEFIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACEFHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACEFHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACEFHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACEFHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACEFGJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACEFGIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACEFGIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACEFGIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACEFGHKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACEFGHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ACEFGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ACEFGHIL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACEFGHIK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACEFGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ACDHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDGIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDGHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDGHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDGHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACDGHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACDFIJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDFHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "F",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDFHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "F",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDFHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "F",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACDFHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "F",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACDFGJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDFGIKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDFGIJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACDFGIJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACDFGHKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "F",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDFGHJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "H"
+  },
+  "ACDFGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "K"
+  },
+  "ACDFGHIL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "F",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACDFGHIK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "F",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACDFGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "I"
+  },
+  "ACDEIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDEHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDEHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDEHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACDEHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACDEGJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDEGIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDEGIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACDEGIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACDEGHKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDEGHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ACDEGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ACDEGHIL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACDEGHIK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACDEGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ACDEFJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDEFIKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "I",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDEFIJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACDEFIJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACDEFHKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "F",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDEFHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "F",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ACDEFHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "K"
+  },
+  "ACDEFHIL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "F",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACDEFHIK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "F",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACDEFHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "I"
+  },
+  "ACDEFGKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ACDEFGJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ACDEFGJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ACDEFGIL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ACDEFGIK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ACDEFGIJ": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ACDEFGHL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "F",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ACDEFGHK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "K"
+  },
+  "ACDEFGHJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "J",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "E"
+  },
+  "ACDEFGHI": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "E",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "I"
+  },
+  "ABGHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABFHIJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABFGIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABFGHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABFGHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABFGHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABFGHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABEHIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABEGIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABEGHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABEGHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABEGHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABEGHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "H",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABEFIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABEFHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABEFHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABEFHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABEFHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABEFGJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABEFGIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABEFGIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABEFGIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABEFGHKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABEFGHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ABEFGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ABEFGHIL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABEFGHIK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABEFGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ABDHIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDGIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDGHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDGHIKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDGHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABDGHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABDFIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDFHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDFHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDFHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABDFHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABDFGJKL": {
+    "3-CEFHI": "F",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDFGIKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDFGIJL": {
+    "3-CEFHI": "F",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABDFGIJK": {
+    "3-CEFHI": "F",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABDFGHKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDFGHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "J"
+  },
+  "ABDFGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "J",
+    "3-EHIJK": "K"
+  },
+  "ABDFGHIL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABDFGHIK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABDFGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "J"
+  },
+  "ABDEIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDEHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDEHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDEHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABDEHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABDEGJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDEGIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDEGIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABDEGIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABDEGHKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDEGHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ABDEGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ABDEGHIL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABDEGHIK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABDEGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ABDEFJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDEFIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDEFIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABDEFIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABDEFHKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDEFHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ABDEFHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ABDEFHIL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABDEFHIK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABDEFHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ABDEFGKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABDEFGJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "J"
+  },
+  "ABDEFGJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "J",
+    "3-EHIJK": "K"
+  },
+  "ABDEFGIL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABDEFGIK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABDEFGIJ": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "J"
+  },
+  "ABDEFGHL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ABDEFGHK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ABDEFGHJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "J"
+  },
+  "ABDEFGHI": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ABCHIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCGIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCGHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCGHIKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCGHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCGHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCFIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCFHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCFHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCFHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCFHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCFGJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCFGIKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCFGIJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCFGIJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "F",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCFGHKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCFGHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "J"
+  },
+  "ABCFGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "J",
+    "3-EHIJK": "K"
+  },
+  "ABCFGHIL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCFGHIK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCFGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "J"
+  },
+  "ABCEIJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "C",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCEHJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCEHIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCEHIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCEHIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCEGJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCEGIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "A",
+    "3-AEHIJ": "I",
+    "3-CDFGH": "C",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCEGIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCEGIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCEGHKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCEGHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ABCEGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ABCEGHIL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCEGHIK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "H",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCEGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ABCEFJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCEFIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCEFIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCEFIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCEFHKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCEFHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ABCEFHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ABCEFHIL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCEFHIK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCEFHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ABCEFGKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCEFGJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "J"
+  },
+  "ABCEFGJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "J",
+    "3-EHIJK": "K"
+  },
+  "ABCEFGIL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCEFGIK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCEFGIJ": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "J"
+  },
+  "ABCEFGHL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ABCEFGHK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ABCEFGHJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "J"
+  },
+  "ABCEFGHI": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ABCDIJKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDHJKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDHIKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDHIJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCDHIJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCDGJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDGIKL": {
+    "3-CEFHI": "I",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDGIJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCDGIJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "G",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCDGHKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDGHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "J"
+  },
+  "ABCDGHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "J",
+    "3-EHIJK": "K"
+  },
+  "ABCDGHIL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCDGHIK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCDGHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "J"
+  },
+  "ABCDFJKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDFIKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDFIJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCDFIJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCDFHKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "F",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDFHJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "H"
+  },
+  "ABCDFHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "K"
+  },
+  "ABCDFHIL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "F",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCDFHIK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "F",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCDFHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "I"
+  },
+  "ABCDFGKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDFGJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "J"
+  },
+  "ABCDFGJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "J",
+    "3-EHIJK": "K"
+  },
+  "ABCDFGIL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCDFGIK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCDFGIJ": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "J"
+  },
+  "ABCDFGHL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "H"
+  },
+  "ABCDFGHK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "K"
+  },
+  "ABCDFGHJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "J"
+  },
+  "ABCDFGHI": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "I"
+  },
+  "ABCDEJKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDEIKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "I",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDEIJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCDEIJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCDEHKL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDEHJL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ABCDEHJK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ABCDEHIL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCDEHIK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCDEHIJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ABCDEGKL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDEGJL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "J"
+  },
+  "ABCDEGJK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "J",
+    "3-EHIJK": "K"
+  },
+  "ABCDEGIL": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCDEGIK": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCDEGIJ": {
+    "3-CEFHI": "E",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "I",
+    "3-EHIJK": "J"
+  },
+  "ABCDEGHL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ABCDEGHK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ABCDEGHJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "E",
+    "3-EHIJK": "J"
+  },
+  "ABCDEGHI": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ABCDEFKL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "K"
+  },
+  "ABCDEFJL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ABCDEFJK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ABCDEFIL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "I"
+  },
+  "ABCDEFIK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "I",
+    "3-EHIJK": "K"
+  },
+  "ABCDEFIJ": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ABCDEFHL": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "F",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "D",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ABCDEFHK": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "K"
+  },
+  "ABCDEFHJ": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "J",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "E"
+  },
+  "ABCDEFHI": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "E",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "I"
+  },
+  "ABCDEFGL": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "L",
+    "3-EHIJK": "E"
+  },
+  "ABCDEFGK": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "K"
+  },
+  "ABCDEFGJ": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "J"
+  },
+  "ABCDEFGI": {
+    "3-CEFHI": "C",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "D",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "E",
+    "3-EHIJK": "I"
+  },
+  "ABCDEFGH": {
+    "3-CEFHI": "H",
+    "3-EFGIJ": "G",
+    "3-BEFIJ": "B",
+    "3-ABCDF": "C",
+    "3-AEHIJ": "A",
+    "3-CDFGH": "F",
+    "3-DEIJL": "D",
+    "3-EHIJK": "E"
+  }
+}
