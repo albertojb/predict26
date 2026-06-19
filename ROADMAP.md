@@ -57,6 +57,14 @@
 - Bracket round order computed by DFS post-order traversal (adjacent cards share a bracket path)
 - Session-state result logging (score overrides + KO winners)
 
+### Bucket 6 — Bracket projection (web UI, `page-predict26.tsx`)
+- `projectBracket()`: greedy deterministic pass over real results + ELO for unplayed matches
+- Group stage: real scores used where available; unplayed matches projected as draw (≤50 ELO gap) or 1-0 to higher ELO
+- Third-place: projects best 8 qualifiers and resolves slots via `assignThird` table
+- KO bracket: higher ELO always advances (no draws in KO)
+- Visual distinction: confirmed teams (bold, full colour) vs. projected teams (italic, muted)
+- MC overlay: if simulation has been run, championship % shown next to each projected name
+
 ---
 
 ## In progress 🔄
@@ -65,6 +73,7 @@
 |---|---|
 | Log real results daily | Manual: open Log Results tab, enter scores as matches finish |
 | ELO rating updates | ELO frozen at June 18 — consider refreshing after group stage completes |
+| schedule.json updates | Add real scores as `"played": true` entries so they survive page reloads |
 
 ---
 
@@ -93,6 +102,6 @@
 |---|---|---|
 | Penalties = 50/50 coin flip | Real penalty odds vary (~56-60% for kicker) | Penalty shootout data available |
 | ELO frozen at June 18 | Doesn't account for momentum, injuries, form | Refresh ELO from eloratings.net weekly |
-| Greedy bracket estimator (max-P winner) | Doesn't show probability distribution per slot | Add slot-tracking to MC output |
+| Greedy bracket projection (client-side) | Shows one deterministic path; not a probability distribution per slot | Add `slot_counts` to MC output to show "60% France, 30% Germany…" per slot |
 | Session-only result logging | Lost on page reload | Add persistence (file or DB) |
 | Home advantage = flat +100 ELO | Reality is venue/crowd-specific | Game-by-game home advantage data |

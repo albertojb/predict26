@@ -107,3 +107,23 @@ Key decisions made during build, with rationale and known trade-offs.
 **Why**: Showing probability distributions per bracket slot would require tracking which team appeared in each match across all MC simulations — a bigger data structure and more complex UI. The greedy bracket is the right default for a quick visual read.
 
 **Trade-off**: The greedy bracket is not the "expected bracket" (which would require Monte Carlo slot tracking). It's the bracket you'd get if the most-likely outcome always happened. Diverges from reality the further you go into the tournament. Upgrade: add `slot_counts: dict[slot → Counter[team]]` to MC output.
+
+---
+
+## ADR-011 — Bracket projection runs client-side, not via a new API
+
+**Decision**: `projectBracket()` is a pure function in `page-predict26.tsx`, called inside a `useMemo`. No new backend route.
+
+**Why**: The function needs only `data` (teams + matches + assignThird) and `eloOverrides`, both already on the client. Adding an API route would be a round-trip with no benefit — the client can resolve all slots deterministically in < 1ms.
+
+**Trade-off**: Logic is duplicated between the Python simulator and this TS projection. Acceptable: the projection is intentionally simpler (no H2H tiebreak, simplified standings sort).
+
+---
+
+## ADR-012 — Group draw threshold for projected bracket: 50 ELO points
+
+**Decision**: For unplayed group matches in the bracket projection, project a draw (0-0) when |ELO₁ − ELO₂| ≤ 50; otherwise the higher-ELO team wins 1-0.
+
+**Why**: A flat threshold is simple and transparent. 50 ELO points corresponds roughly to a 57% vs 43% win probability split — close enough that a draw is the honest projection.
+
+**Trade-off**: The threshold is arbitrary; misclassifying close matches slightly shifts projected group standings. Irrelevant in practice since only group positions (not exact scores) matter for bracket advancement.

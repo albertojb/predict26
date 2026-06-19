@@ -239,7 +239,7 @@ export default function Predict26() {
         {tab === "sim" && <SimTab results={results} nameToElo={nameToElo} eloOverrides={eloOverrides} />}
         {tab === "groups" && <GroupsTab data={patchedData ?? data} />}
         {tab === "match" && <MatchTab teamNames={teamNames} nameToElo={nameToElo} eloOverrides={eloOverrides} />}
-        {tab === "bracket" && <BracketTab data={patchedData ?? data} results={results} />}
+        {tab === "bracket" && <BracketTab data={patchedData ?? data} results={results} eloOverrides={eloOverrides} />}
         {tab === "log" && <LogTab data={data} logged={logged} setLogged={setLogged} clearLogged={clearLogged} mergeLogged={mergeLogged} />}
       </div>
       <Colophon />
@@ -1231,9 +1231,118 @@ function LogRow({ match, teams, logged, setLogged }: {
   );
 }
 
-function BracketTab({ data, results }: {
+// ─── Greedy bracket projection ─────────────────────────────────────────────────
+// Projects which team fills every KO slot using real results + ELO for unplayed.
+// confirmed=true  → result is locked by actual played matches
+// confirmed=false → name is the ELO-based projection, not yet decided
+const PROJ_DRAW_ELO_GAP = 50;
+
+function projectBracket(
+  data: DataResp,
+  eloOverrides: Record<string, number>,
+): Record<string, { name: string; confirmed: boolean }> {
+  const elo: Record<string, number> = {};
+  for (const t of Object.values(data.teams)) elo[t.name] = eloOverrides[t.name] ?? t.elo;
+
+  type ProjRow = { slot: string; name: string; elo: number; pts: number; gd: number; gf: number; wins: number };
+  const teamsByGroup: Record<string, Team[]> = {};
+  for (const t of Object.values(data.teams)) (teamsByGroup[t.group] ||= []).push(t);
+
+  const standings: Record<string, ProjRow[]> = {};
+  const groupCounts: Record<string, { played: number; total: number }> = {};
+
+  for (const g of "ABCDEFGHIJKL") {
+    const gTeams = teamsByGroup[g] || [];
+    const st: Record<string, ProjRow> = {};
+    for (const t of gTeams) st[t.slot] = { slot: t.slot, name: t.name, elo: t.elo, pts: 0, gd: 0, gf: 0, wins: 0 };
+
+    const gms = data.matches.filter((m) => m.stage === `Group ${g}`);
+    groupCounts[g] = { played: 0, total: gms.length };
+
+    for (const m of gms) {
+      const r1 = st[m.team1_slot], r2 = st[m.team2_slot];
+      if (!r1 || !r2) continue;
+      let g1: number, g2: number;
+      if (m.played && m.score_home != null && m.score_away != null) {
+        g1 = m.score_home; g2 = m.score_away;
+        groupCounts[g].played++;
+      } else {
+        const t1 = data.teams[m.team1_slot], t2 = data.teams[m.team2_slot];
+        const e1 = (elo[t1?.name ?? ""] ?? 1500) + (t1?.is_host ? 100 : 0);
+        const e2 = (elo[t2?.name ?? ""] ?? 1500) + (t2?.is_host ? 100 : 0);
+        if (Math.abs(e1 - e2) <= PROJ_DRAW_ELO_GAP) { g1 = 0; g2 = 0; }
+        else if (e1 > e2) { g1 = 1; g2 = 0; }
+        else { g1 = 0; g2 = 1; }
+      }
+      r1.gf += g1; r1.gd += g1 - g2; r2.gf += g2; r2.gd += g2 - g1;
+      if (g1 > g2) { r1.pts += 3; r1.wins++; }
+      else if (g2 > g1) { r2.pts += 3; r2.wins++; }
+      else { r1.pts++; r2.pts++; }
+    }
+
+    standings[g] = Object.values(st).sort((a, b) =>
+      (b.pts - a.pts) || (b.gd - a.gd) || (b.gf - a.gf) || (b.wins - a.wins) ||
+      (b.elo - a.elo) || a.name.localeCompare(b.name),
+    );
+  }
+
+  // Best 8 third-placed teams
+  const thirds = Object.entries(standings)
+    .filter(([, st]) => st.length >= 3)
+    .map(([g, st]) => ({ g, r: st[2] }));
+  thirds.sort((a, b) =>
+    (b.r.pts * 1_000_000 + b.r.gd * 1_000 + b.r.gf) -
+    (a.r.pts * 1_000_000 + a.r.gd * 1_000 + a.r.gf) ||
+    a.r.name.localeCompare(b.r.name),
+  );
+  const top8 = thirds.slice(0, 8);
+  const atKey = [...new Set(top8.map((x) => x.g))].sort().join("");
+  const thirdBracket: Record<string, string> = data.assignThird[atKey] ?? {};
+
+  const result: Record<string, { name: string; confirmed: boolean }> = {};
+
+  for (const [g, st] of Object.entries(standings)) {
+    const done = groupCounts[g].played === groupCounts[g].total;
+    if (st[0]) result[`1${g}`] = { name: st[0].name, confirmed: done };
+    if (st[1]) result[`2${g}`] = { name: st[1].name, confirmed: done };
+  }
+  const allGroupsDone = Object.values(groupCounts).every((c) => c.played === c.total);
+  for (const [slot, grp] of Object.entries(thirdBracket)) {
+    const st = standings[grp];
+    if (st?.[2]) result[slot] = { name: st[2].name, confirmed: allGroupsDone };
+  }
+
+  const KO_STAGES = new Set(["Round of 32", "Round of 16", "Quarter-final", "Semi-final", "Final", "Third place"]);
+  for (const m of [...data.matches].sort((a, b) => a.match_no - b.match_no)) {
+    if (!KO_STAGES.has(m.stage)) continue;
+    const p1 = result[m.team1_slot] ?? null;
+    const p2 = result[m.team2_slot] ?? null;
+    if (!p1 || !p2) continue;
+
+    let winner: { name: string; confirmed: boolean };
+    let loser: { name: string; confirmed: boolean };
+
+    if (m.played && m.score_home != null && m.score_away != null) {
+      const t1w = m.score_home >= m.score_away; // >= covers draw (shouldn't happen in KO but defensive)
+      winner = { name: t1w ? p1.name : p2.name, confirmed: true };
+      loser = { name: t1w ? p2.name : p1.name, confirmed: true };
+    } else {
+      const e1 = elo[p1.name] ?? 1500, e2 = elo[p2.name] ?? 1500;
+      const t1w = e1 >= e2;
+      winner = { name: t1w ? p1.name : p2.name, confirmed: false };
+      loser = { name: t1w ? p2.name : p1.name, confirmed: false };
+    }
+    result[`W${m.match_no}`] = winner;
+    result[`RU${m.match_no}`] = loser;
+  }
+
+  return result;
+}
+
+function BracketTab({ data, results, eloOverrides }: {
   data: DataResp;
   results: { counts: Counts; n: number; elapsedMs: number } | null;
+  eloOverrides: Record<string, number>;
 }) {
   const stages = ["Round of 32", "Round of 16", "Quarter-final", "Semi-final", "Final", "Third place"];
   const matchesByStage = useMemo(() => {
@@ -1242,6 +1351,8 @@ function BracketTab({ data, results }: {
     for (const s of Object.keys(o)) o[s].sort((a, b) => a.match_no - b.match_no);
     return o;
   }, [data]);
+
+  const projection = useMemo(() => projectBracket(data, eloOverrides), [data, eloOverrides]);
 
   const champPct = (name?: string) => {
     if (!results || !name) return null;
@@ -1255,7 +1366,7 @@ function BracketTab({ data, results }: {
       <SectionTitle
         kicker="§ II — The Bracket"
         title="Forty-eight enter. One lifts."
-        lede="The knockout draw, by FIFA's slot labels. Cast a simulation to overlay each side's championship probability."
+        lede="Projected bracket based on ELO and live results. Italicised names are predicted, not yet confirmed. Run the simulation to overlay championship probability."
       />
       {stages.map((stage) => {
         const ms = matchesByStage[stage] || [];
@@ -1295,13 +1406,13 @@ function BracketTab({ data, results }: {
                     <span>Match {String(m.match_no).padStart(3, "0")}</span>
                     <span>{m.date.slice(5, 10)} · {m.venue.split(",")[0].slice(0, 14)}</span>
                   </div>
-                  <SlotRow slot={m.team1_slot} teams={data.teams} champPct={champPct} />
+                  <SlotRow slot={m.team1_slot} teams={data.teams} champPct={champPct} projection={projection} />
                   <div style={{
                     fontFamily: "'Fraunces', serif", fontStyle: "italic",
                     color: ink.oxblood, fontSize: 12, textAlign: "center",
                     margin: "2px 0",
                   }}>vs.</div>
-                  <SlotRow slot={m.team2_slot} teams={data.teams} champPct={champPct} />
+                  <SlotRow slot={m.team2_slot} teams={data.teams} champPct={champPct} projection={projection} />
                 </div>
               ))}
             </div>
@@ -1312,26 +1423,34 @@ function BracketTab({ data, results }: {
   );
 }
 
-function SlotRow({ slot, teams, champPct }: {
-  slot: string; teams: Record<string, Team>; champPct: (n?: string) => number | null;
+function SlotRow({ slot, teams, champPct, projection }: {
+  slot: string;
+  teams: Record<string, Team>;
+  champPct: (n?: string) => number | null;
+  projection?: Record<string, { name: string; confirmed: boolean }>;
 }) {
-  const team = teams[slot];
-  const label = team ? team.name : slotLabel(slot);
-  const c = team ? champPct(team.name) : null;
+  const directTeam = teams[slot]; // only set for raw draw positions (A1, B2…) — never for KO slots
+  const proj = directTeam
+    ? { name: directTeam.name, confirmed: true }
+    : (projection?.[slot] ?? null);
+  const label = proj ? proj.name : slotLabel(slot);
+  const c = proj ? champPct(proj.name) : null;
+  const isProjected = !!proj && !proj.confirmed;
+
   return (
     <div style={{
       display: "flex", justifyContent: "space-between", alignItems: "center",
       padding: "4px 0",
-      color: team ? ink.ink : ink.muted,
+      color: proj ? (isProjected ? ink.muted : ink.ink) : ink.faint,
       fontFamily: "'Fraunces', serif",
-      fontSize: team ? 15 : 13,
-      fontWeight: team ? 600 : 400,
-      fontStyle: team ? "normal" : "italic",
+      fontSize: proj ? 15 : 13,
+      fontWeight: proj ? (isProjected ? 400 : 600) : 400,
+      fontStyle: isProjected || !proj ? "italic" : "normal",
     }}>
       <span>{label}</span>
       {c !== null && c >= 0.005 && (
         <span style={{
-          color: ink.oxblood,
+          color: isProjected ? ink.faint : ink.oxblood,
           fontFamily: "'JetBrains Mono', monospace", fontSize: 11, fontWeight: 700,
         }}>{fmtPct(c)}</span>
       )}

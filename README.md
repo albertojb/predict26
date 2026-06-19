@@ -15,7 +15,7 @@ World Cup 2026 match estimator and tournament simulator using ELO ratings.
 - **Manual ELO overrides** — scenario testing with custom ratings
 - **Group-stage simulation** — full standings with FIFA 2026 tie-break rules (9 criteria)
 - **Third-place ranking** — coefficient formula from the FIFA reference, best 8 of 12 advance
-- **Knockout bracket** — exact slot mapping from the official AssignThird table (495 entries)
+- **Knockout bracket** — projected bracket with real team names: confirmed results shown in bold, ELO-predicted slots in italics; exact slot mapping from the official AssignThird table (495 entries)
 - **Full tournament Monte Carlo** — 10,000 simulations by default, adjustable
 - **Streamlit UI** — browser-accessible, upload your own CSV/JSON, charts and tables
 - **Locked real results** — matches 1–20 use real scores; remaining matches are simulated
