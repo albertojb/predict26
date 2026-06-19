@@ -1,5 +1,5 @@
 // Route: /predict26 (page)
-// React UI for the WC 2026 simulator. Talks to:
+// Editorial sports-annual redesign. Talks to:
 //   GET  /api/predict26/data
 //   POST /api/predict26/match-probs
 //   POST /api/predict26/simulate
@@ -16,25 +16,42 @@ type Stage = "group" | "r32" | "r16" | "qf" | "sf" | "final" | "champion";
 type Counts = Record<string, Record<Stage, number>>;
 type DataResp = { teams: Record<string, Team>; matches: Match[]; assignThird: Record<string, Record<string, string>> };
 
-const STAGE_LABEL: Record<Stage, string> = {
-  group: "Group", r32: "R32", r16: "R16", qf: "QF", sf: "SF", final: "Final", champion: "Champion",
-};
+const KOFI_HANDLE = "albertojb";
+const GITHUB_URL = "https://github.com/albertojb/predict26";
 
-const theme = {
-  bg: "#0b1220",
-  panel: "#111a2e",
-  panel2: "#16223b",
-  border: "#243254",
-  fg: "#e8edf5",
-  muted: "#8aa0c2",
-  accent: "#22d3a3",
-  accent2: "#f5b942",
-  win: "#22d3a3",
-  draw: "#8aa0c2",
-  loss: "#ef6b6b",
+const ink = {
+  paper: "#F2EBDC",
+  paperDeep: "#E8DFCB",
+  paperEdge: "#D9CDB1",
+  rule: "#1A1410",
+  ink: "#1A1410",
+  inkSoft: "#3A2E25",
+  muted: "#6B5A48",
+  faint: "#9C8B73",
+  oxblood: "#7A1E1E",
+  oxbloodDeep: "#5C1414",
+  gold: "#A87A2A",
+  pitch: "#2F5230",
+  draw: "#8C7A5C",
 };
 
 const fmtPct = (x: number) => `${(x * 100).toFixed(1)}%`;
+const fmtPctTight = (x: number) => `${(x * 100).toFixed(0)}%`;
+
+function injectFonts() {
+  if (typeof document === "undefined") return;
+  if (document.getElementById("predict26-fonts")) return;
+  const pre1 = document.createElement("link");
+  pre1.rel = "preconnect"; pre1.href = "https://fonts.googleapis.com"; pre1.id = "predict26-fonts";
+  document.head.appendChild(pre1);
+  const pre2 = document.createElement("link");
+  pre2.rel = "preconnect"; pre2.href = "https://fonts.gstatic.com"; pre2.crossOrigin = "anonymous";
+  document.head.appendChild(pre2);
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap";
+  document.head.appendChild(link);
+}
 
 export default function Predict26() {
   const [data, setData] = useState<DataResp | null>(null);
@@ -49,11 +66,11 @@ export default function Predict26() {
   const [simErr, setSimErr] = useState<string | null>(null);
 
   useEffect(() => {
+    injectFonts();
     fetch("/api/predict26/data", { headers: { Accept: "application/json" } })
       .then(async (r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        const j = await r.json();
-        setData(j);
+        setData(await r.json());
       })
       .catch((e) => setLoadErr(String(e)));
   }, []);
@@ -90,96 +107,172 @@ export default function Predict26() {
 
   if (loadErr) {
     return (
-      <div style={{ minHeight: "100vh", background: theme.bg, color: theme.fg, padding: 24, fontFamily: "system-ui,sans-serif" }}>
-        <h1>Predict26</h1>
-        <p style={{ color: theme.loss }}>Failed to load data: {loadErr}</p>
-      </div>
+      <Shell>
+        <p style={{ color: ink.oxblood, fontFamily: "Manrope,sans-serif" }}>
+          Failed to load data: {loadErr}
+        </p>
+      </Shell>
     );
   }
-
   if (!data) {
     return (
-      <div style={{ minHeight: "100vh", background: theme.bg, color: theme.fg, display: "grid", placeItems: "center", fontFamily: "system-ui,sans-serif" }}>
-        <p style={{ color: theme.muted }}>Loading World Cup data…</p>
-      </div>
+      <Shell>
+        <p style={{ color: ink.muted, fontFamily: "Manrope,sans-serif", fontStyle: "italic" }}>
+          Loading the tournament…
+        </p>
+      </Shell>
     );
   }
 
   return (
-    <div style={{ minHeight: "100vh", background: theme.bg, color: theme.fg, fontFamily: "system-ui,sans-serif" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "24px 20px 48px" }}>
-        <Header data={data} />
-        <Settings
-          n={n} setN={setN}
-          seed={seed} setSeed={setSeed}
-          eloOverrides={eloOverrides}
-          setEloOverrides={setEloOverrides}
-          nameToElo={nameToElo}
-          teamNames={teamNames}
-          runSim={runSim}
-          running={running}
-          simErr={simErr}
-          results={results}
-        />
-        <Tabs tab={tab} setTab={setTab} />
+    <Shell>
+      <Masthead data={data} />
+      <Dateline />
+      <Controls
+        n={n} setN={setN}
+        seed={seed} setSeed={setSeed}
+        eloOverrides={eloOverrides}
+        setEloOverrides={setEloOverrides}
+        nameToElo={nameToElo}
+        teamNames={teamNames}
+        runSim={runSim}
+        running={running}
+        simErr={simErr}
+        results={results}
+      />
+      <Sections tab={tab} setTab={setTab} />
+      <div style={{ marginTop: 28 }}>
         {tab === "sim" && <SimTab results={results} nameToElo={nameToElo} eloOverrides={eloOverrides} />}
         {tab === "groups" && <GroupsTab data={data} />}
         {tab === "match" && <MatchTab teamNames={teamNames} nameToElo={nameToElo} eloOverrides={eloOverrides} />}
-        {tab === "bracket" && <BracketTab data={data} results={results} nameToElo={nameToElo} eloOverrides={eloOverrides} />}
-        <Footer />
+        {tab === "bracket" && <BracketTab data={data} results={results} />}
       </div>
+      <Colophon />
+    </Shell>
+  );
+}
+
+function Shell({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{
+      minHeight: "100vh",
+      background: `radial-gradient(ellipse at top, ${ink.paper} 0%, ${ink.paperDeep} 100%)`,
+      color: ink.ink,
+      fontFamily: "Manrope, system-ui, sans-serif",
+      position: "relative",
+    }}>
+      <div style={{
+        position: "fixed", inset: 0, pointerEvents: "none", opacity: 0.35, mixBlendMode: "multiply",
+        backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.06  0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")`,
+      }} />
+      <div style={{
+        position: "fixed", inset: 0, pointerEvents: "none",
+        boxShadow: `inset 0 0 120px rgba(60,40,20,0.25)`,
+      }} />
+      <div style={{
+        maxWidth: 1180,
+        margin: "0 auto",
+        padding: "44px 32px 64px",
+        position: "relative",
+        animation: "fadeUp 700ms ease-out both",
+      }}>
+        {children}
+      </div>
+      <style>{`
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+        @keyframes stretch { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        input[data-p26]:focus, select[data-p26]:focus, button[data-p26]:focus {
+          outline: 2px solid ${ink.oxblood}; outline-offset: 2px;
+        }
+        ::selection { background: ${ink.oxblood}; color: ${ink.paper}; }
+        body { background: ${ink.paper}; }
+      `}</style>
     </div>
   );
 }
 
-function Header({ data }: { data: DataResp }) {
+function Masthead({ data }: { data: DataResp }) {
   const played = data.matches.filter((m) => m.played).length;
+  const total = data.matches.length;
   return (
-    <div style={{ marginBottom: 20 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-        <h1 style={{ margin: 0, fontSize: 28, letterSpacing: -0.5 }}>
-          <span style={{ color: theme.accent }}>Predict</span>26
-        </h1>
-        <span style={{ color: theme.muted, fontSize: 14 }}>World Cup 2026 — ELO + Monte Carlo simulator</span>
+    <header style={{ marginBottom: 8 }}>
+      <div style={{
+        display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 24,
+        flexWrap: "wrap",
+      }}>
+        <div>
+          <div style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 11, letterSpacing: 4, textTransform: "uppercase",
+            color: ink.oxblood, fontWeight: 700, marginBottom: 14,
+          }}>
+            № 26 · The World Cup Annual
+          </div>
+          <h1 style={{
+            margin: 0,
+            fontFamily: "'Fraunces', serif",
+            fontVariationSettings: "'opsz' 144, 'SOFT' 50",
+            fontWeight: 900,
+            fontSize: "clamp(56px, 9vw, 124px)",
+            lineHeight: 0.86,
+            letterSpacing: -3,
+            color: ink.ink,
+          }}>
+            Predict<span style={{ color: ink.oxblood, fontStyle: "italic", fontWeight: 700 }}>26</span>.
+          </h1>
+          <p style={{
+            margin: "14px 0 0",
+            fontFamily: "'Fraunces', serif",
+            fontStyle: "italic",
+            fontWeight: 400,
+            fontSize: "clamp(15px, 1.7vw, 19px)",
+            color: ink.inkSoft,
+            maxWidth: 620,
+            lineHeight: 1.4,
+          }}>
+            An ELO &amp; Monte-Carlo reckoning of the 2026 FIFA World Cup —
+            <span style={{ color: ink.muted }}> Forty-eight teams. One-hundred-and-four matches. Ten thousand simulated futures.</span>
+          </p>
+        </div>
+        <div style={{
+          minWidth: 220,
+          borderLeft: `2px solid ${ink.rule}`,
+          paddingLeft: 18,
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 11,
+          color: ink.inkSoft,
+          lineHeight: 1.9,
+          textTransform: "uppercase",
+          letterSpacing: 1.2,
+        }}>
+          <div><span style={{ color: ink.muted }}>Edition</span> · USA·CAN·MEX</div>
+          <div><span style={{ color: ink.muted }}>Teams</span> · {Object.keys(data.teams).length}</div>
+          <div><span style={{ color: ink.muted }}>Fixtures</span> · {total}</div>
+          <div><span style={{ color: ink.muted }}>Locked</span> · {played} of {total}</div>
+        </div>
       </div>
-      <div style={{ color: theme.muted, fontSize: 13, marginTop: 6 }}>
-        48 teams · {data.matches.length} matches · {played} real results locked
+    </header>
+  );
+}
+
+function Dateline() {
+  return (
+    <div style={{
+      display: "flex", alignItems: "center", gap: 14, margin: "30px 0 22px",
+    }}>
+      <div style={{ flex: 1, height: 2, background: ink.rule }} />
+      <div style={{
+        fontFamily: "'JetBrains Mono', monospace",
+        fontSize: 10, letterSpacing: 3, color: ink.muted, textTransform: "uppercase",
+      }}>
+        Issue · The Numbers Room
       </div>
+      <div style={{ flex: 1, height: 2, background: ink.rule }} />
     </div>
   );
 }
 
-function Tabs({ tab, setTab }: { tab: string; setTab: (t: any) => void }) {
-  const tabs: [string, string][] = [
-    ["sim", "Tournament Odds"],
-    ["bracket", "Bracket"],
-    ["groups", "Group Standings"],
-    ["match", "Match Estimator"],
-  ];
-  return (
-    <div style={{ display: "flex", gap: 4, borderBottom: `1px solid ${theme.border}`, margin: "20px 0 18px" }}>
-      {tabs.map(([key, label]) => (
-        <button
-          key={key}
-          onClick={() => setTab(key)}
-          style={{
-            background: tab === key ? theme.panel2 : "transparent",
-            border: "none",
-            borderBottom: `2px solid ${tab === key ? theme.accent : "transparent"}`,
-            color: tab === key ? theme.fg : theme.muted,
-            padding: "10px 16px",
-            fontSize: 14,
-            fontWeight: 500,
-            cursor: "pointer",
-            borderRadius: "6px 6px 0 0",
-          }}
-        >{label}</button>
-      ))}
-    </div>
-  );
-}
-
-function Settings({
+function Controls({
   n, setN, seed, setSeed, eloOverrides, setEloOverrides, nameToElo, teamNames,
   runSim, running, simErr, results,
 }: any) {
@@ -187,67 +280,111 @@ function Settings({
   const overrideCount = Object.keys(eloOverrides).length;
 
   return (
-    <div style={{ background: theme.panel, border: `1px solid ${theme.border}`, borderRadius: 10, padding: 14, marginBottom: 8 }}>
-      <div style={{ display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap" }}>
-        <label style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 12, color: theme.muted }}>
-          Simulations
-          <input
-            type="number" min={500} max={50000} step={500} value={n}
+    <section style={{
+      background: ink.paper,
+      border: `1.5px solid ${ink.rule}`,
+      padding: "18px 20px",
+      marginTop: 8,
+      boxShadow: `4px 4px 0 ${ink.rule}`,
+    }}>
+      <div style={{
+        display: "flex", alignItems: "flex-end", gap: 22, flexWrap: "wrap",
+      }}>
+        <Field label="Simulations">
+          <input data-p26 type="number" min={500} max={50000} step={500} value={n}
             onChange={(e) => setN(Math.max(500, Math.min(50000, Number(e.target.value) || 5000)))}
-            style={inputStyle}
+            style={fieldInput()}
           />
-        </label>
-        <label style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 12, color: theme.muted }}>
-          Seed (0 = random)
-          <input
-            type="number" min={0} value={seed}
+        </Field>
+        <Field label="Seed · 0 = random">
+          <input data-p26 type="number" min={0} value={seed}
             onChange={(e) => setSeed(Math.max(0, Number(e.target.value) || 0))}
-            style={inputStyle}
+            style={fieldInput()}
           />
-        </label>
-        <button
+        </Field>
+        <button data-p26
           onClick={runSim}
           disabled={running}
           style={{
-            background: running ? theme.panel2 : theme.accent,
-            color: running ? theme.muted : "#08130c",
-            border: "none", padding: "10px 18px", fontSize: 14, fontWeight: 700,
-            borderRadius: 8, cursor: running ? "default" : "pointer",
-            marginTop: 16,
+            background: running ? ink.paperDeep : ink.oxblood,
+            color: running ? ink.muted : ink.paper,
+            border: `1.5px solid ${ink.rule}`,
+            padding: "12px 22px",
+            fontFamily: "'Fraunces', serif",
+            fontSize: 16,
+            fontWeight: 700,
+            letterSpacing: 0.4,
+            cursor: running ? "default" : "pointer",
+            boxShadow: running ? "none" : `3px 3px 0 ${ink.rule}`,
+            transform: running ? "translate(3px,3px)" : "none",
+            transition: "transform 120ms ease, box-shadow 120ms ease",
           }}
-        >{running ? "Running…" : results ? "Re-run simulation" : "Run simulation"}</button>
-        <button
-          onClick={() => setEloOpen((v) => !v)}
+        >
+          {running ? "Casting lots…" : results ? "Re-cast" : "Cast the bones"}
+        </button>
+        <button data-p26
+          onClick={() => setEloOpen((v: boolean) => !v)}
           style={{
-            background: "transparent", color: theme.fg,
-            border: `1px solid ${theme.border}`,
-            padding: "10px 14px", fontSize: 13, borderRadius: 8, cursor: "pointer",
-            marginTop: 16,
+            background: "transparent",
+            color: ink.ink,
+            border: `1.5px solid ${ink.rule}`,
+            padding: "12px 18px",
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 11,
+            letterSpacing: 1.5,
+            textTransform: "uppercase",
+            cursor: "pointer",
           }}
-        >ELO overrides{overrideCount ? ` (${overrideCount})` : ""} {eloOpen ? "▾" : "▸"}</button>
+        >
+          ELO overrides{overrideCount ? ` · ${overrideCount}` : ""} {eloOpen ? "−" : "+"}
+        </button>
         {results && (
-          <span style={{ color: theme.muted, fontSize: 12, marginLeft: "auto", marginTop: 16 }}>
+          <div style={{
+            marginLeft: "auto",
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 11,
+            color: ink.muted,
+            letterSpacing: 1,
+            textTransform: "uppercase",
+          }}>
             {results.n.toLocaleString()} sims · {(results.elapsedMs / 1000).toFixed(2)}s
-          </span>
+          </div>
         )}
       </div>
 
-      {simErr && <p style={{ color: theme.loss, marginTop: 8, fontSize: 13 }}>Sim error: {simErr}</p>}
+      {simErr && (
+        <p style={{
+          color: ink.oxblood, marginTop: 10, fontSize: 13, fontStyle: "italic",
+          fontFamily: "'Fraunces', serif",
+        }}>
+          The bones refused. ({simErr})
+        </p>
+      )}
 
       {eloOpen && (
         <div style={{
-          marginTop: 12, paddingTop: 12, borderTop: `1px solid ${theme.border}`,
-          maxHeight: 280, overflowY: "auto",
-          display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(220px,1fr))", gap: 8,
+          marginTop: 14, paddingTop: 14, borderTop: `1px dashed ${ink.faint}`,
+          maxHeight: 320, overflowY: "auto",
+          display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))", gap: 10,
         }}>
           {teamNames.map((name: string) => {
             const base = nameToElo[name];
             const cur = eloOverrides[name] ?? base;
             const changed = cur !== base;
             return (
-              <div key={name} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13 }}>
-                <span style={{ flex: 1, color: changed ? theme.accent2 : theme.fg }}>{name}</span>
-                <input
+              <div key={name} style={{
+                display: "flex", alignItems: "center", gap: 10, fontSize: 13,
+                padding: "4px 6px",
+                background: changed ? "rgba(122,30,30,0.05)" : "transparent",
+              }}>
+                <span style={{
+                  flex: 1,
+                  fontFamily: "'Fraunces', serif",
+                  color: changed ? ink.oxblood : ink.ink,
+                  fontWeight: changed ? 600 : 400,
+                  fontSize: 14,
+                }}>{name}</span>
+                <input data-p26
                   type="number" min={800} max={2500} step={10} value={cur}
                   onChange={(e) => {
                     const v = parseInt(e.target.value, 10);
@@ -258,12 +395,108 @@ function Settings({
                       return next;
                     });
                   }}
-                  style={{ ...inputStyle, width: 72, padding: "4px 6px" }}
+                  style={{ ...fieldInput(), width: 82, padding: "5px 8px" }}
                 />
               </div>
             );
           })}
         </div>
+      )}
+    </section>
+  );
+}
+
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <label style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      <span style={{
+        fontFamily: "'JetBrains Mono', monospace",
+        fontSize: 10, letterSpacing: 2, color: ink.muted, textTransform: "uppercase",
+      }}>{label}</span>
+      {children}
+    </label>
+  );
+}
+
+function fieldInput(): React.CSSProperties {
+  return {
+    background: ink.paperDeep,
+    border: `1.5px solid ${ink.rule}`,
+    color: ink.ink,
+    padding: "8px 10px",
+    fontFamily: "'JetBrains Mono', monospace",
+    fontSize: 14,
+    fontWeight: 600,
+    width: 120,
+  };
+}
+
+function Sections({ tab, setTab }: { tab: string; setTab: (t: any) => void }) {
+  const tabs: [string, string, string][] = [
+    ["sim", "I.", "Tournament Odds"],
+    ["bracket", "II.", "The Bracket"],
+    ["groups", "III.", "Group Tables"],
+    ["match", "IV.", "Match Room"],
+  ];
+  return (
+    <nav style={{
+      marginTop: 26,
+      display: "flex", gap: 0, flexWrap: "wrap",
+      borderTop: `2px solid ${ink.rule}`,
+      borderBottom: `2px solid ${ink.rule}`,
+    }}>
+      {tabs.map(([key, numeral, label], i) => (
+        <button
+          key={key}
+          onClick={() => setTab(key)}
+          data-p26
+          style={{
+            flex: "1 1 auto",
+            background: tab === key ? ink.ink : "transparent",
+            color: tab === key ? ink.paper : ink.ink,
+            border: "none",
+            borderLeft: i === 0 ? "none" : `1.5px solid ${ink.rule}`,
+            padding: "14px 18px",
+            fontFamily: "'Fraunces', serif",
+            fontSize: 16,
+            fontWeight: 600,
+            cursor: "pointer",
+            display: "flex", alignItems: "baseline", gap: 10, justifyContent: "center",
+            textAlign: "left",
+            transition: "background 160ms ease, color 160ms ease",
+          }}
+        >
+          <span style={{
+            fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
+            color: tab === key ? ink.gold : ink.oxblood, letterSpacing: 1,
+          }}>{numeral}</span>
+          {label}
+        </button>
+      ))}
+    </nav>
+  );
+}
+
+function SectionTitle({ kicker, title, lede }: { kicker: string; title: string; lede?: string }) {
+  return (
+    <div style={{ marginBottom: 22 }}>
+      <div style={{
+        fontFamily: "'JetBrains Mono', monospace",
+        fontSize: 10, letterSpacing: 3, color: ink.oxblood, textTransform: "uppercase",
+        fontWeight: 700, marginBottom: 6,
+      }}>{kicker}</div>
+      <h2 style={{
+        margin: 0,
+        fontFamily: "'Fraunces', serif",
+        fontWeight: 700, fontSize: "clamp(28px, 4vw, 44px)",
+        letterSpacing: -1, lineHeight: 1.05, color: ink.ink,
+      }}>{title}</h2>
+      {lede && (
+        <p style={{
+          margin: "8px 0 0",
+          fontFamily: "'Fraunces', serif", fontStyle: "italic",
+          color: ink.muted, fontSize: 16, maxWidth: 700, lineHeight: 1.45,
+        }}>{lede}</p>
       )}
     </div>
   );
@@ -276,9 +509,13 @@ function SimTab({ results, nameToElo, eloOverrides }: {
 }) {
   if (!results) {
     return (
-      <div style={{ ...panelStyle, color: theme.muted, padding: 32, textAlign: "center" }}>
-        Click <b>Run simulation</b> above to compute championship odds.
-      </div>
+      <article>
+        <SectionTitle
+          kicker="§ I — The Odds"
+          title="No simulation cast yet."
+          lede="Press Cast the bones above to set ten thousand parallel tournaments in motion."
+        />
+      </article>
     );
   }
   const rows = Object.entries(results.counts).map(([name, c]) => {
@@ -294,37 +531,73 @@ function SimTab({ results, nameToElo, eloOverrides }: {
     };
   }).sort((a, b) => b.champion - a.champion);
 
-  const maxChamp = rows[0]?.champion ?? 1;
+  const top = rows[0];
+  const second = rows[1];
+  const third = rows[2];
+  const maxChamp = top?.champion ?? 1;
 
   return (
-    <div>
-      <div style={{ ...panelStyle, marginBottom: 16 }}>
-        <h3 style={{ margin: "0 0 12px", fontSize: 16 }}>Championship odds — top 16</h3>
-        {rows.slice(0, 16).map((r) => (
-          <div key={r.name} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6, fontSize: 13 }}>
-            <span style={{ width: 160, color: theme.fg }}>{r.name}</span>
-            <div style={{ flex: 1, background: theme.panel2, height: 18, borderRadius: 3, overflow: "hidden" }}>
+    <article>
+      <SectionTitle
+        kicker="§ I — The Odds"
+        title="A leaderboard, distilled."
+        lede="Championship probability ranks the table. Read the leaderboard like league standings; read the bars like a betting market."
+      />
+
+      <div style={{
+        display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+        gap: 16, marginBottom: 28,
+      }}>
+        <Podium rank={1} row={top} accent={ink.oxblood} note="Bookmaker's favourite" />
+        <Podium rank={2} row={second} accent={ink.gold} note="The closest threat" />
+        <Podium rank={3} row={third} accent={ink.pitch} note="Outside chance" />
+      </div>
+
+      <div style={paperBlock()}>
+        <BlockHead title="Champion · top sixteen" right={`scale to ${fmtPct(maxChamp)}`} />
+        {rows.slice(0, 16).map((r, i) => (
+          <div key={r.name} style={{
+            display: "grid",
+            gridTemplateColumns: "28px 1.8fr 4fr 72px",
+            alignItems: "center", gap: 12,
+            padding: "9px 0",
+            borderBottom: i < 15 ? `1px dashed ${ink.faint}` : "none",
+          }}>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace", color: ink.muted,
+              fontSize: 12, fontWeight: 600,
+            }}>{String(i + 1).padStart(2, "0")}</span>
+            <span style={{
+              fontFamily: "'Fraunces', serif", fontWeight: 600, fontSize: 17, color: ink.ink,
+            }}>{r.name}</span>
+            <div style={{ position: "relative", height: 14, background: ink.paperDeep, border: `1px solid ${ink.faint}` }}>
               <div style={{
+                position: "absolute", inset: 0, right: "auto",
                 width: `${(r.champion / maxChamp) * 100}%`,
-                background: theme.accent, height: "100%",
+                background: i === 0 ? ink.oxblood : i < 3 ? ink.oxbloodDeep : ink.inkSoft,
+                animation: `stretch 700ms cubic-bezier(0.2,0.7,0.2,1) ${i * 35}ms both`,
+                transformOrigin: "left",
               }} />
             </div>
-            <span style={{ width: 60, textAlign: "right", color: theme.fg, fontVariantNumeric: "tabular-nums" }}>
-              {fmtPct(r.champion)}
-            </span>
+            <span style={{
+              textAlign: "right",
+              fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: 14,
+              color: i === 0 ? ink.oxblood : ink.ink,
+            }}>{fmtPct(r.champion)}</span>
           </div>
         ))}
       </div>
 
-      <div style={{ ...panelStyle, overflowX: "auto" }}>
+      <div style={{ ...paperBlock(), marginTop: 20, overflowX: "auto" }}>
+        <BlockHead title="Full ledger · all forty-eight" right="probabilities" />
         <table style={tableStyle}>
           <thead>
             <tr>
               <th style={thStyle}>#</th>
               <th style={{ ...thStyle, textAlign: "left" }}>Team</th>
               <th style={thStyle}>ELO</th>
-              <th style={thStyle}>🏆 Champion</th>
-              <th style={thStyle}>🥈 Finalist</th>
+              <th style={thStyle}>Champion</th>
+              <th style={thStyle}>Finalist</th>
               <th style={thStyle}>Top 4</th>
               <th style={thStyle}>Top 8</th>
               <th style={thStyle}>Qualify</th>
@@ -332,11 +605,11 @@ function SimTab({ results, nameToElo, eloOverrides }: {
           </thead>
           <tbody>
             {rows.map((r, i) => (
-              <tr key={r.name}>
-                <td style={{ ...tdStyle, color: theme.muted }}>{i + 1}</td>
-                <td style={{ ...tdStyle, textAlign: "left" }}>{r.name}</td>
+              <tr key={r.name} style={{ borderBottom: `1px dashed ${ink.faint}` }}>
+                <td style={{ ...tdStyle, color: ink.muted }}>{String(i + 1).padStart(2, "0")}</td>
+                <td style={{ ...tdStyle, textAlign: "left", fontFamily: "'Fraunces', serif", fontSize: 15, fontWeight: 500 }}>{r.name}</td>
                 <td style={tdStyle}>{r.elo}</td>
-                <td style={{ ...tdStyle, color: theme.accent, fontWeight: 600 }}>{fmtPct(r.champion)}</td>
+                <td style={{ ...tdStyle, color: ink.oxblood, fontWeight: 700 }}>{fmtPct(r.champion)}</td>
                 <td style={tdStyle}>{fmtPct(r.finalist)}</td>
                 <td style={tdStyle}>{fmtPct(r.top4)}</td>
                 <td style={tdStyle}>{fmtPct(r.top8)}</td>
@@ -346,6 +619,59 @@ function SimTab({ results, nameToElo, eloOverrides }: {
           </tbody>
         </table>
       </div>
+    </article>
+  );
+}
+
+function Podium({ rank, row, accent, note }: {
+  rank: number; row?: any; accent: string; note: string;
+}) {
+  if (!row) return null;
+  const ordinal = rank === 1 ? "First" : rank === 2 ? "Second" : "Third";
+  return (
+    <div style={{
+      background: ink.paper,
+      border: `1.5px solid ${ink.rule}`,
+      padding: "18px 18px 16px",
+      position: "relative",
+      boxShadow: `4px 4px 0 ${ink.rule}`,
+    }}>
+      <div style={{
+        position: "absolute", top: -10, left: 16,
+        background: accent, color: ink.paper,
+        padding: "2px 10px",
+        fontFamily: "'JetBrains Mono', monospace",
+        fontSize: 10, letterSpacing: 2, textTransform: "uppercase", fontWeight: 700,
+      }}>{ordinal}</div>
+      <div style={{
+        fontFamily: "'Fraunces', serif", fontSize: 26, fontWeight: 700,
+        color: ink.ink, marginTop: 6, letterSpacing: -0.5, lineHeight: 1.1,
+      }}>{row.name}</div>
+      <div style={{
+        display: "flex", alignItems: "baseline", gap: 8, marginTop: 12,
+      }}>
+        <span style={{
+          fontFamily: "'JetBrains Mono', monospace", fontWeight: 700,
+          fontSize: 38, color: accent, letterSpacing: -1,
+        }}>{fmtPct(row.champion)}</span>
+        <span style={{
+          fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
+          color: ink.muted, letterSpacing: 1, textTransform: "uppercase",
+        }}>to lift it</span>
+      </div>
+      <div style={{
+        marginTop: 8,
+        display: "flex", justifyContent: "space-between",
+        fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
+        color: ink.muted, letterSpacing: 1, textTransform: "uppercase",
+      }}>
+        <span>ELO {row.elo}</span>
+        <span>{fmtPctTight(row.top4)} top-4</span>
+      </div>
+      <div style={{
+        marginTop: 10, paddingTop: 8, borderTop: `1px dashed ${ink.faint}`,
+        fontFamily: "'Fraunces', serif", fontStyle: "italic", fontSize: 13, color: ink.inkSoft,
+      }}>{note}.</div>
     </div>
   );
 }
@@ -354,7 +680,6 @@ function GroupsTab({ data }: { data: DataResp }) {
   const [group, setGroup] = useState("A");
   const groupLetters = "ABCDEFGHIJKL".split("");
 
-  // Reuse the same standings logic client-side (simple recomputation)
   const standings = useMemo(() => {
     const teamsByGroup: Record<string, Team[]> = {};
     for (const t of Object.values(data.teams)) (teamsByGroup[t.group] ||= []).push(t);
@@ -376,7 +701,7 @@ function GroupsTab({ data }: { data: DataResp }) {
       const arr = Object.values(st).map((s: any) => ({
         ...s, points: s.wins * 3 + s.draws, gd: s.gf - s.ga,
       }));
-      arr.sort((a, b) =>
+      arr.sort((a: any, b: any) =>
         b.points - a.points || b.gd - a.gd || b.gf - a.gf
         || b.wins - a.wins || b.elo - a.elo || a.name.localeCompare(b.name),
       );
@@ -388,22 +713,33 @@ function GroupsTab({ data }: { data: DataResp }) {
   const st = standings[group] || [];
 
   return (
-    <div>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
+    <article>
+      <SectionTitle
+        kicker="§ III — Group Tables"
+        title="Twelve groups, three rounds."
+        lede="Top two advance directly to the Round of 32; the eight best third-placed sides scramble for the remaining berths."
+      />
+
+      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16 }}>
         {groupLetters.map((g) => (
           <button
             key={g}
+            data-p26
             onClick={() => setGroup(g)}
             style={{
-              background: g === group ? theme.accent : theme.panel2,
-              color: g === group ? "#08130c" : theme.fg,
-              border: "none", padding: "6px 12px", borderRadius: 6, fontWeight: 600,
-              cursor: "pointer", fontSize: 13,
+              background: g === group ? ink.ink : "transparent",
+              color: g === group ? ink.paper : ink.ink,
+              border: `1.5px solid ${ink.rule}`,
+              padding: "8px 14px",
+              fontFamily: "'Fraunces', serif",
+              fontWeight: 600, fontSize: 14, cursor: "pointer",
+              letterSpacing: 0.4,
             }}
           >Group {g}</button>
         ))}
       </div>
-      <div style={{ ...panelStyle, overflowX: "auto" }}>
+      <div style={{ ...paperBlock(), overflowX: "auto" }}>
+        <BlockHead title={`Group ${group}`} right="standings" />
         <table style={tableStyle}>
           <thead>
             <tr>
@@ -424,9 +760,19 @@ function GroupsTab({ data }: { data: DataResp }) {
             {st.map((t: any, i: number) => {
               const advance = i < 2;
               return (
-                <tr key={t.slot} style={{ background: advance ? "rgba(34,211,163,0.06)" : undefined }}>
-                  <td style={{ ...tdStyle, color: advance ? theme.accent : theme.muted, fontWeight: 600 }}>{i + 1}</td>
-                  <td style={{ ...tdStyle, textAlign: "left" }}>{t.name}</td>
+                <tr key={t.slot} style={{
+                  background: advance ? "rgba(47,82,48,0.06)" : undefined,
+                  borderBottom: `1px dashed ${ink.faint}`,
+                }}>
+                  <td style={{
+                    ...tdStyle,
+                    color: advance ? ink.pitch : ink.muted,
+                    fontWeight: 700,
+                  }}>{i + 1}</td>
+                  <td style={{
+                    ...tdStyle, textAlign: "left",
+                    fontFamily: "'Fraunces', serif", fontSize: 15, fontWeight: 500,
+                  }}>{t.name}</td>
                   <td style={tdStyle}>{t.elo}</td>
                   <td style={tdStyle}>{t.played}</td>
                   <td style={tdStyle}>{t.wins}</td>
@@ -435,17 +781,14 @@ function GroupsTab({ data }: { data: DataResp }) {
                   <td style={tdStyle}>{t.gf}</td>
                   <td style={tdStyle}>{t.ga}</td>
                   <td style={tdStyle}>{t.gd > 0 ? `+${t.gd}` : t.gd}</td>
-                  <td style={{ ...tdStyle, fontWeight: 700 }}>{t.points}</td>
+                  <td style={{ ...tdStyle, fontWeight: 700, color: ink.ink }}>{t.points}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
       </div>
-      <p style={{ color: theme.muted, fontSize: 12, marginTop: 8 }}>
-        Top 2 advance directly · best 8 of the 12 third-placed teams also advance to R32
-      </p>
-    </div>
+    </article>
   );
 }
 
@@ -470,61 +813,90 @@ function MatchTab({ teamNames, nameToElo, eloOverrides }: {
   }, [a, b, nameToElo, eloOverrides]);
 
   if (!teamNames.length) return null;
-
   const e1 = eloOverrides[a] ?? nameToElo[a];
   const e2 = eloOverrides[b] ?? nameToElo[b];
 
   return (
-    <div style={panelStyle}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }}>
-        <label style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 12, color: theme.muted }}>
-          Team A
-          <select value={a} onChange={(e) => setA(e.target.value)} style={inputStyle}>
+    <article>
+      <SectionTitle
+        kicker="§ IV — Match Room"
+        title="Any two sides, side by side."
+        lede="Pick two teams. The model returns a Poisson-weighted scoreline expectation and a probability triptych."
+      />
+      <div style={{
+        display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: 18, marginBottom: 22,
+        alignItems: "end",
+      }}>
+        <Field label="Home / Team A">
+          <select data-p26 value={a} onChange={(e) => setA(e.target.value)} style={{ ...fieldInput(), width: "100%", fontFamily: "'Fraunces', serif", fontSize: 16 }}>
             {teamNames.map((n) => <option key={n} value={n}>{n}</option>)}
           </select>
-        </label>
-        <label style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 12, color: theme.muted }}>
-          Team B
-          <select value={b} onChange={(e) => setB(e.target.value)} style={inputStyle}>
+        </Field>
+        <div style={{
+          fontFamily: "'Fraunces', serif", fontStyle: "italic", color: ink.oxblood,
+          fontSize: 22, paddingBottom: 6,
+        }}>vs.</div>
+        <Field label="Away / Team B">
+          <select data-p26 value={b} onChange={(e) => setB(e.target.value)} style={{ ...fieldInput(), width: "100%", fontFamily: "'Fraunces', serif", fontSize: 16 }}>
             {teamNames.filter((n) => n !== a).map((n) => <option key={n} value={n}>{n}</option>)}
           </select>
-        </label>
+        </Field>
       </div>
-      <p style={{ fontSize: 13, color: theme.muted, marginBottom: 12 }}>
-        ELO: <b style={{ color: theme.fg }}>{a}</b> {e1} vs <b style={{ color: theme.fg }}>{b}</b> {e2} (Δ = {e1 - e2 >= 0 ? "+" : ""}{e1 - e2})
+      <p style={{
+        fontFamily: "'JetBrains Mono', monospace", fontSize: 12,
+        color: ink.muted, letterSpacing: 1, textTransform: "uppercase",
+        marginBottom: 18,
+      }}>
+        ELO · {a} {e1} · {b} {e2} · Δ {e1 - e2 >= 0 ? "+" : ""}{e1 - e2}
       </p>
+
       {r && !r.error && (
-        <>
-          <div style={{ display: "flex", height: 36, borderRadius: 6, overflow: "hidden", marginBottom: 16 }}>
-            <div style={{ width: `${r.pWin * 100}%`, background: theme.win, display: "grid", placeItems: "center", fontSize: 12, color: "#08130c", fontWeight: 700 }}>
-              {fmtPct(r.pWin)}
-            </div>
-            <div style={{ width: `${r.pDraw * 100}%`, background: theme.draw, display: "grid", placeItems: "center", fontSize: 12, color: "#08130c", fontWeight: 700 }}>
-              {fmtPct(r.pDraw)}
-            </div>
-            <div style={{ width: `${r.pLoss * 100}%`, background: theme.loss, display: "grid", placeItems: "center", fontSize: 12, color: "#fff", fontWeight: 700 }}>
-              {fmtPct(r.pLoss)}
-            </div>
+        <div style={paperBlock()}>
+          <BlockHead title="The triptych" right="WDL probabilities" />
+          <div style={{
+            display: "flex", height: 60, marginBottom: 22,
+            border: `1.5px solid ${ink.rule}`,
+            fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: 15,
+          }}>
+            <div style={{
+              width: `${r.pWin * 100}%`,
+              background: ink.pitch, color: ink.paper,
+              display: "grid", placeItems: "center",
+              animation: "stretch 700ms ease-out both", transformOrigin: "left",
+            }}>{fmtPct(r.pWin)}</div>
+            <div style={{
+              width: `${r.pDraw * 100}%`,
+              background: ink.draw, color: ink.ink,
+              display: "grid", placeItems: "center",
+              animation: "stretch 700ms ease-out 100ms both", transformOrigin: "left",
+            }}>{fmtPct(r.pDraw)}</div>
+            <div style={{
+              width: `${r.pLoss * 100}%`,
+              background: ink.oxblood, color: ink.paper,
+              display: "grid", placeItems: "center",
+              animation: "stretch 700ms ease-out 200ms both", transformOrigin: "left",
+            }}>{fmtPct(r.pLoss)}</div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(120px,1fr))", gap: 10 }}>
-            <Metric label={`${a} Win`} value={fmtPct(r.pWin)} color={theme.win} />
-            <Metric label="Draw" value={fmtPct(r.pDraw)} color={theme.draw} />
-            <Metric label={`${b} Win`} value={fmtPct(r.pLoss)} color={theme.loss} />
-            <Metric label={`xG ${a}`} value={r.xg1.toFixed(2)} />
-            <Metric label={`xG ${b}`} value={r.xg2.toFixed(2)} />
-            <Metric label={`KO advance ${a}`} value={fmtPct(r.pAdv)} color={theme.accent2} />
+
+          <div style={{
+            display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(160px,1fr))", gap: 14,
+          }}>
+            <Metric label={`${a} Win`} value={fmtPct(r.pWin)} accent={ink.pitch} />
+            <Metric label="Draw" value={fmtPct(r.pDraw)} accent={ink.draw} />
+            <Metric label={`${b} Win`} value={fmtPct(r.pLoss)} accent={ink.oxblood} />
+            <Metric label={`xG · ${a}`} value={r.xg1.toFixed(2)} accent={ink.ink} />
+            <Metric label={`xG · ${b}`} value={r.xg2.toFixed(2)} accent={ink.ink} />
+            <Metric label={`KO advance · ${a}`} value={fmtPct(r.pAdv)} accent={ink.gold} />
           </div>
-        </>
+        </div>
       )}
-    </div>
+    </article>
   );
 }
 
-function BracketTab({ data, results, nameToElo, eloOverrides }: {
+function BracketTab({ data, results }: {
   data: DataResp;
   results: { counts: Counts; n: number; elapsedMs: number } | null;
-  nameToElo: Record<string, number>;
-  eloOverrides: Record<string, number>;
 }) {
   const stages = ["Round of 32", "Round of 16", "Quarter-final", "Semi-final", "Final", "Third place"];
   const matchesByStage = useMemo(() => {
@@ -542,51 +914,89 @@ function BracketTab({ data, results, nameToElo, eloOverrides }: {
   };
 
   return (
-    <div>
-      <p style={{ color: theme.muted, fontSize: 12, marginBottom: 12 }}>
-        Knockout bracket with FIFA's slot labels. Run a simulation to see each team's championship odds (🏆).
-      </p>
+    <article>
+      <SectionTitle
+        kicker="§ II — The Bracket"
+        title="Forty-eight enter. One lifts."
+        lede="The knockout draw, by FIFA's slot labels. Cast a simulation to overlay each side's championship probability."
+      />
       {stages.map((stage) => {
         const ms = matchesByStage[stage] || [];
         if (!ms.length) return null;
         return (
-          <div key={stage} style={{ marginBottom: 18 }}>
-            <h3 style={{ margin: "0 0 8px", fontSize: 14, color: theme.muted, textTransform: "uppercase", letterSpacing: 1 }}>{stage}</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))", gap: 8 }}>
+          <section key={stage} style={{ marginBottom: 26 }}>
+            <div style={{
+              display: "flex", alignItems: "center", gap: 12, marginBottom: 12,
+            }}>
+              <h3 style={{
+                margin: 0,
+                fontFamily: "'Fraunces', serif",
+                fontStyle: "italic", fontWeight: 600, fontSize: 22, color: ink.ink,
+                letterSpacing: -0.5,
+              }}>{stage}</h3>
+              <div style={{ flex: 1, height: 1, background: ink.rule }} />
+              <span style={{
+                fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
+                color: ink.muted, letterSpacing: 1.5, textTransform: "uppercase",
+              }}>{ms.length} fixtures</span>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(260px,1fr))", gap: 10 }}>
               {ms.map((m) => (
                 <div key={m.match_no} style={{
-                  background: theme.panel, border: `1px solid ${theme.border}`,
-                  borderRadius: 8, padding: 10, fontSize: 12,
+                  background: ink.paper,
+                  border: `1.5px solid ${ink.rule}`,
+                  padding: 12,
+                  fontSize: 13,
+                  boxShadow: `2px 2px 0 ${ink.rule}`,
                 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", color: theme.muted, fontSize: 11, marginBottom: 6 }}>
-                    <span>M{m.match_no}</span>
-                    <span>{m.date.slice(5, 10)} · {m.venue.split(",")[0].slice(0, 16)}</span>
+                  <div style={{
+                    display: "flex", justifyContent: "space-between",
+                    fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
+                    color: ink.muted, letterSpacing: 1, marginBottom: 8,
+                    textTransform: "uppercase",
+                  }}>
+                    <span>Match {String(m.match_no).padStart(3, "0")}</span>
+                    <span>{m.date.slice(5, 10)} · {m.venue.split(",")[0].slice(0, 14)}</span>
                   </div>
                   <SlotRow slot={m.team1_slot} teams={data.teams} champPct={champPct} />
-                  <div style={{ height: 1, background: theme.border, margin: "4px 0" }} />
+                  <div style={{
+                    fontFamily: "'Fraunces', serif", fontStyle: "italic",
+                    color: ink.oxblood, fontSize: 12, textAlign: "center",
+                    margin: "2px 0",
+                  }}>vs.</div>
                   <SlotRow slot={m.team2_slot} teams={data.teams} champPct={champPct} />
                 </div>
               ))}
             </div>
-          </div>
+          </section>
         );
       })}
-    </div>
+    </article>
   );
 }
 
 function SlotRow({ slot, teams, champPct }: {
   slot: string; teams: Record<string, Team>; champPct: (n?: string) => number | null;
 }) {
-  // For seeded slots from teams, show the real team name; otherwise show the slot label
   const team = teams[slot];
   const label = team ? team.name : slotLabel(slot);
   const c = team ? champPct(team.name) : null;
   return (
-    <div style={{ display: "flex", justifyContent: "space-between", padding: "4px 0", color: team ? theme.fg : theme.muted }}>
+    <div style={{
+      display: "flex", justifyContent: "space-between", alignItems: "center",
+      padding: "4px 0",
+      color: team ? ink.ink : ink.muted,
+      fontFamily: "'Fraunces', serif",
+      fontSize: team ? 15 : 13,
+      fontWeight: team ? 600 : 400,
+      fontStyle: team ? "normal" : "italic",
+    }}>
       <span>{label}</span>
       {c !== null && c >= 0.005 && (
-        <span style={{ color: theme.accent2, fontSize: 11 }}>🏆 {fmtPct(c)}</span>
+        <span style={{
+          color: ink.oxblood,
+          fontFamily: "'JetBrains Mono', monospace", fontSize: 11, fontWeight: 700,
+        }}>{fmtPct(c)}</span>
       )}
     </div>
   );
@@ -600,58 +1010,176 @@ function slotLabel(slot: string): string {
   return slot;
 }
 
-function Metric({ label, value, color }: { label: string; value: string; color?: string }) {
+function Metric({ label, value, accent }: { label: string; value: string; accent: string }) {
   return (
-    <div style={{ background: theme.panel2, padding: 10, borderRadius: 6 }}>
-      <div style={{ fontSize: 11, color: theme.muted, marginBottom: 4 }}>{label}</div>
-      <div style={{ fontSize: 18, fontWeight: 700, color: color ?? theme.fg }}>{value}</div>
+    <div style={{
+      background: ink.paperDeep,
+      border: `1px solid ${ink.faint}`,
+      padding: "14px 14px 12px",
+    }}>
+      <div style={{
+        fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
+        color: ink.muted, letterSpacing: 1.5, textTransform: "uppercase",
+        marginBottom: 6,
+      }}>{label}</div>
+      <div style={{
+        fontFamily: "'JetBrains Mono', monospace", fontSize: 24, fontWeight: 700,
+        color: accent, letterSpacing: -0.5,
+      }}>{value}</div>
     </div>
   );
 }
 
-function Footer() {
+function paperBlock(): React.CSSProperties {
+  return {
+    background: ink.paper,
+    border: `1.5px solid ${ink.rule}`,
+    padding: "18px 20px",
+    boxShadow: `3px 3px 0 ${ink.rule}`,
+  };
+}
+
+function BlockHead({ title, right }: { title: string; right?: string }) {
   return (
-    <div style={{ color: theme.muted, fontSize: 12, marginTop: 32, paddingTop: 16, borderTop: `1px solid ${theme.border}`, textAlign: "center" }}>
-      ELO model · Poisson goals · Mulberry32 RNG · 12 groups + best 3rd bracket per FIFA 2026 reference
+    <div style={{
+      display: "flex", justifyContent: "space-between", alignItems: "baseline",
+      marginBottom: 14, paddingBottom: 10,
+      borderBottom: `1.5px solid ${ink.rule}`,
+    }}>
+      <h4 style={{
+        margin: 0,
+        fontFamily: "'Fraunces', serif", fontStyle: "italic",
+        fontWeight: 600, fontSize: 18, color: ink.ink, letterSpacing: -0.3,
+      }}>{title}</h4>
+      {right && (
+        <span style={{
+          fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
+          color: ink.muted, letterSpacing: 1.5, textTransform: "uppercase",
+        }}>{right}</span>
+      )}
     </div>
   );
 }
-
-const inputStyle: React.CSSProperties = {
-  background: theme.panel2,
-  border: `1px solid ${theme.border}`,
-  color: theme.fg,
-  padding: "6px 8px",
-  borderRadius: 6,
-  fontSize: 13,
-  width: 110,
-};
-
-const panelStyle: React.CSSProperties = {
-  background: theme.panel,
-  border: `1px solid ${theme.border}`,
-  borderRadius: 10,
-  padding: 14,
-};
 
 const tableStyle: React.CSSProperties = {
   width: "100%",
   borderCollapse: "collapse",
   fontSize: 13,
+  fontFamily: "'JetBrains Mono', monospace",
 };
 
 const thStyle: React.CSSProperties = {
-  padding: "8px 10px",
+  padding: "10px 8px",
   textAlign: "center",
-  color: theme.muted,
-  fontWeight: 600,
-  fontSize: 12,
-  borderBottom: `1px solid ${theme.border}`,
+  color: ink.muted,
+  fontWeight: 700,
+  fontSize: 10,
+  letterSpacing: 1.5,
+  textTransform: "uppercase",
+  borderBottom: `2px solid ${ink.rule}`,
 };
 
 const tdStyle: React.CSSProperties = {
-  padding: "7px 10px",
+  padding: "9px 8px",
   textAlign: "center",
   fontVariantNumeric: "tabular-nums",
-  borderBottom: `1px solid ${theme.border}`,
+  fontWeight: 500,
+  color: ink.inkSoft,
 };
+
+function Colophon() {
+  return (
+    <footer style={{
+      marginTop: 52, paddingTop: 24,
+      borderTop: `4px double ${ink.rule}`,
+    }}>
+      <div style={{
+        display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 24,
+        marginBottom: 18,
+      }}>
+        <div>
+          <div style={kickerStyle()}>The Model</div>
+          <p style={colophonPara()}>
+            ELO ratings convert to win probabilities by the standard logistic; goals are Poisson with
+            <span style={{ fontFamily: "'JetBrains Mono', monospace" }}> λ = 1.2 · exp(ΔR/1000)</span>;
+            knockouts settle ties by a coin-flip. Mulberry32 supplies the entropy.
+          </p>
+        </div>
+        <div>
+          <div style={kickerStyle()}>The Format</div>
+          <p style={colophonPara()}>
+            Twelve groups of four, three rounds. The top two from each group plus the eight best
+            third-placed sides advance into a Round of 32. Hosts get +100 ELO in the group stage.
+          </p>
+        </div>
+        <div>
+          <div style={kickerStyle()}>The Source</div>
+          <p style={colophonPara()}>
+            Open source under <a href={GITHUB_URL + "/blob/main/LICENSE"} style={linkStyle()}>GNU GPL v3</a>.
+            Built by <a href={GITHUB_URL} style={linkStyle()}>Alberto Jiménez Bonilla</a> · {" "}
+            <a href={GITHUB_URL} style={linkStyle()}>github.com/albertojb/predict26</a>.
+          </p>
+        </div>
+        <div>
+          <div style={kickerStyle()}>Buy the Author a Coffee</div>
+          <a
+            href={`https://ko-fi.com/${KOFI_HANDLE}`}
+            target="_blank" rel="noopener noreferrer"
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              background: ink.oxblood, color: ink.paper,
+              border: `1.5px solid ${ink.rule}`,
+              padding: "10px 16px",
+              fontFamily: "'Fraunces', serif", fontWeight: 700,
+              fontSize: 14, letterSpacing: 0.3,
+              textDecoration: "none",
+              boxShadow: `3px 3px 0 ${ink.rule}`,
+              marginTop: 4,
+            }}
+          >
+            <span>☕</span> Ko-fi · ko-fi.com/{KOFI_HANDLE}
+          </a>
+        </div>
+      </div>
+      <div style={{
+        display: "flex", justifyContent: "space-between", alignItems: "baseline",
+        paddingTop: 16, borderTop: `1px solid ${ink.faint}`, flexWrap: "wrap", gap: 12,
+      }}>
+        <span style={{
+          fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
+          color: ink.muted, letterSpacing: 2, textTransform: "uppercase",
+        }}>
+          Predict26 · The World Cup Annual · MMXXVI
+        </span>
+        <span style={{
+          fontFamily: "'Fraunces', serif", fontStyle: "italic", fontSize: 13, color: ink.muted,
+        }}>
+          Set in Fraunces, Manrope &amp; JetBrains Mono. Printed on the cloud.
+        </span>
+      </div>
+    </footer>
+  );
+}
+
+function kickerStyle(): React.CSSProperties {
+  return {
+    fontFamily: "'JetBrains Mono', monospace",
+    fontSize: 10, letterSpacing: 2.5, color: ink.oxblood,
+    textTransform: "uppercase", fontWeight: 700, marginBottom: 8,
+  };
+}
+function colophonPara(): React.CSSProperties {
+  return {
+    margin: 0,
+    fontFamily: "'Fraunces', serif", fontSize: 14, color: ink.inkSoft,
+    lineHeight: 1.5,
+  };
+}
+function linkStyle(): React.CSSProperties {
+  return {
+    color: ink.oxblood,
+    textDecoration: "underline",
+    textDecorationStyle: "dotted",
+    textUnderlineOffset: 3,
+  };
+}

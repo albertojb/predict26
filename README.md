@@ -1,5 +1,9 @@
 # Predict26
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-7A1E1E.svg)](LICENSE)
+[![Live](https://img.shields.io/badge/Live-sail.zo.space%2Fpredict26-1A1410)](https://sail.zo.space/predict26)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/albertojb)
+
 World Cup 2026 match estimator and tournament simulator using ELO ratings.
 
 **Live:** https://sail.zo.space/predict26
@@ -90,3 +94,11 @@ The project is split into four pure modules:
 4. **simulator** — orchestrates the above to run a full tournament
 
 `app.py` only calls these modules — it contains no logic of its own.
+
+## License
+
+[GNU General Public License v3.0](LICENSE) — see the `LICENSE` file for the full text. Copyright © 2026 Alberto Jiménez Bonilla.
+
+## Support
+
+If you find this useful, you can buy me a coffee at [ko-fi.com/albertojb](https://ko-fi.com/albertojb).
