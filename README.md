@@ -1,6 +1,9 @@
-# WC26 Engine
+# Predict26
 
 World Cup 2026 match estimator and tournament simulator using ELO ratings.
+
+**Live:** https://sail.zo.space/predict26
+**Repo layout + deploy workflow:** see [AGENTS.md](AGENTS.md).
 
 ## Features
 
